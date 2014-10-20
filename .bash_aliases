@@ -1,28 +1,28 @@
 # System
-alias info="inxi -Fxz"
-alias fail="systemctl list-units -a | grep failed"
-alias update="sudo yaourt -Syu --aur"
-alias remove="sudo pacman -Rns $(pacman -Qtdq)"
-alias firewall=iptl 
+alias info='inxi -Fxz'
+alias fail='systemctl list-units -a | grep failed'
+alias update='sudo yaourt -Syu --aur'
+alias remove='sudo pacman -Rns $(pacman -Qtdq)'
+alias firewall=iptl
+alias ping='ping -c 100 -s.2' 
 alias lsps='ps -elf | grep'
-alias ping='ping -c 100 -s.2'
 
 # Emacs
-alias re="systemctl restart emacs --user" 
-alias de="emacs -nw --debug-init"
+alias re='systemctl restart emacs --user' 
+alias de='emacs -nw --debug-init'
 
 # Rails Job
-alias d="ssh Dealer"
-alias dfs="sshfs Dealer:/home/afsmnghr ~/Dealer"
-alias dufs="fusermount -u ~/Dealer"
-alias rails="sh ~/.rails.sh"
-alias rsense="cd $RSENSE_HOME/bin && ruby rsense server &"  
+alias d='ssh Dealer'
+alias dfs='sshfs Dealer:/home/afsmnghr ~/Dealer'
+alias dufs='fusermount -u ~/Dealer'
+alias rails='sh ~/.rails.sh'
+alias rsense='cd $RSENSE_HOME/bin && ruby rsense server &'  
 
 # Git
 alias gst='git status'
 alias gl='git pull'
 alias gp='git push'
-alias gd='git diff | mate'
+alias gbd='git branch -D'
 alias gau='git add --update'
 alias gc='git commit -v'
 alias gca='git commit -v -a'
@@ -44,17 +44,17 @@ alias l.='ls -d .* --color=auto'
 # Grep
 alias grep='grep --color=tty -d skip'
 
-# 
+# Etc
 alias df='df -h'                          # human-readable sizes
 alias du='du -ch'
 alias free='free -m'                      # show sizes in MB
 alias np='nano PKGBUILD'
 
-# Safely
+# Safely actions
 alias mv='mv -i'
 alias cp='cp -i'
 alias ln='ln -i'
-alias cp="cp -i"                          # confirm before overwriting something
+alias cp='cp -i'                          # confirm before overwriting something
 alias rm='rm -I --preserve-root'
 alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'

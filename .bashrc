@@ -9,8 +9,7 @@ if [ -x /usr/bin/git ]; then
 fi
 
 # Bash aliases
-if [ -f ~/.bash_aliases ]
-then
+if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
 

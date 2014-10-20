@@ -1,0 +1,9 @@
+[user]
+  email = afay.zangetsu@gmail.com
+  name = Afay Zangetsu
+[core]
+  editor = nano
+[color]
+  diff = auto
+  status = auto
+  branch = auto
