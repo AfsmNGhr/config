@@ -1,10 +1,9 @@
-xset -dpms; xset s off &
-
 ## Basic compositing effects
 compton -CGb &
 
 ## Background
 nitrogen --restore &
+xset -dpms; xset s off &
 
 ## Panel
 tint2 &
@@ -12,15 +11,3 @@ tint2 &
 ## Startup
 pnmixer &
 setxkbmap -layout "us,ru" -option "grp:caps_toggle" &
-#lxpolkit &
-
-#(sleep 3s && conky) &
-
-## Optionally enable file manager in daemon mode for automounting
-# (sleep 1s && thunar --daemon) &
-
-## Optionally enable screensaver
-#(sleep 1s && xautolock -time 15 -locker 'xlock -mode blank') &
-
-## Optionally disable touchpad
-#/usr/bin/synclient TouchpadOff=1 &

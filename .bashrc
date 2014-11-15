@@ -33,6 +33,7 @@ export HISTFILESIZE=${HISTSIZE}
 export HISTCONTROL=ignoreboth
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export RSENSE_HOME="/opt/rsense-0.3"
+export EDITOR=/usr/bin/nano
 
 ex ()
 {

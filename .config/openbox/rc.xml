@@ -43,7 +43,7 @@
   </placement>
   <theme>
     <name>Turquoise Nights Ob</name>
-    <titleLayout>LIMC</titleLayout>
+    <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
       N: window icon
@@ -134,7 +134,7 @@
   </desktops>
   <resize>
     <drawContents>yes</drawContents>
-    <popupShow>Nonpixel</popupShow>
+    <popupShow>NonPixel</popupShow>
     <!-- 'Always', 'Never', or 'Nonpixel' (xterms and such) -->
     <popupPosition>Center</popupPosition>
     <!-- 'Center', 'Top', or 'Fixed' -->
@@ -153,7 +153,7 @@
      Many programs reserve space automatically, but you can use this in other
      cases. -->
   <margins>
-    <top>0</top>
+    <top>28</top>
     <bottom>0</bottom>
     <left>0</left>
     <right>0</right>
@@ -317,6 +317,7 @@
     </keybind>
     <!-- Keybindings for running applications -->
     <keybind key="W-t">
+      <action name="ToggleShowDesktop"/>
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
@@ -326,20 +327,23 @@
       </action>
     </keybind>
     <keybind key="W-r">
+      <action name="ToggleShowDesktop"/>
       <action name="ShowMenu">
         <menu>root-menu</menu>
       </action>
     </keybind>
     <keybind key="W-w">
+      <action name="ToggleShowDesktop"/>
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
           <name>firefox</name>
         </startupnotify>
-        <command>firefox-nightly</command>
+        <command>sh ~/.bin/app/firefox.sh</command>
       </action>
     </keybind>
     <keybind key="W-q">
+      <action name="ToggleShowDesktop"/>
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
@@ -349,6 +353,7 @@
       </action>
     </keybind>
     <keybind key="W-v">
+      <action name="ToggleShowDesktop"/>
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
@@ -358,6 +363,7 @@
       </action>
     </keybind>
     <keybind key="W-e">
+      <action name="ToggleShowDesktop"/>
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
@@ -367,6 +373,7 @@
       </action>
     </keybind>
     <keybind key="W-g">
+      <action name="ToggleShowDesktop"/>
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
@@ -376,15 +383,17 @@
       </action>
     </keybind>
     <keybind key="W-f">
+      <action name="ToggleShowDesktop"/>
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
           <name>mc</name>
         </startupnotify>
-        <command>terminator -x mc</command>
+        <command>sh ~/.bin/app/mc.sh</command>
       </action>
     </keybind>
     <keybind key="W-n">
+      <action name="ToggleShowDesktop"/>
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
@@ -394,15 +403,17 @@
       </action>
     </keybind>
     <keybind key="W-u">
+      <action name="ToggleShowDesktop"/>
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
           <name>skype</name>
         </startupnotify>
-        <command>skype</command>
+        <command>sh ~/.bin/app/skype.sh</command>
       </action>
     </keybind>
     <keybind key="W-b">
+      <action name="ToggleShowDesktop"/>
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
@@ -412,6 +423,7 @@
       </action>
     </keybind>
     <keybind key="W-y">
+      <action name="ToggleShowDesktop"/>
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
@@ -421,6 +433,7 @@
       </action>
     </keybind>
     <keybind key="W-s">
+      <action name="ToggleShowDesktop"/>
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
@@ -430,6 +443,7 @@
       </action>
     </keybind>
     <keybind key="W-m">
+      <action name="ToggleShowDesktop"/>
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
@@ -439,6 +453,7 @@
       </action>
     </keybind>
     <keybind key="w-x">
+      <action name="ToggleShowDesktop"/>
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
@@ -483,7 +498,7 @@
     <!-- number of pixels the mouse must move before a drag begins -->
     <doubleClickTime>200</doubleClickTime>
     <!-- in milliseconds (1000 = 1 second) -->
-    <screenEdgeWarpTime>400</screenEdgeWarpTime>
+    <screenEdgeWarpTime>500</screenEdgeWarpTime>
     <!-- Time before changing desktops when the pointer touches the edge of the
        screen while moving a window, in milliseconds (1000 = 1 second).
        Set this to 0 to disable warping -->
@@ -907,7 +922,37 @@
   </application>
 
   # end of the example
--->
-    <!-- <decor>no</decor> -->
+    -->
+    <application name="virt-manager">
+      <desktop>3</desktop>
+      <layer>normal</layer>
+    </application>
+    <application name="transmission-gtk">
+      <desktop>4</desktop>
+      <layer>below</layer>
+    </application>
+    <application name="skype">
+      <desktop>4</desktop>
+      <layer>below</layer>
+    </application>
+    <application name="deadbeef">
+      <desktop>4</desktop>
+      <layer>below</layer>
+    </application>
+    <application name="chromium">
+      <desktop>4</desktop>
+      <maximized>true</maximized>
+      <layer>normal</layer>
+    </application>
+    <application name="/usr/share/xmind/XMind">
+      <desktop>4</desktop>
+      <fullscreen>yes</fullscreen>
+      <layer>above</layer>
+    </application>
+    <application name="firefox">
+      <desktop>1</desktop>
+      <fullscreen>yes</fullscreen>
+      <layer>normal</layer>
+    </application>
   </applications>
 </openbox_config>
