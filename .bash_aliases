@@ -1,22 +1,29 @@
 # System
 alias info='inxi -Fxz'
+alias battery='acpi -b'
 alias fail='systemctl list-units -a | grep failed'
 alias update='sudo yaourt -Syu --aur'
 alias remove='sudo pacman -Rns $(pacman -Qtdq)'
 alias firewall=iptl
-alias ping='ping -c 100 -s.2' 
+alias ping='ping -c 100 -s.2'
 alias lsps='ps -elf | grep'
 
 # Emacs
-alias re='systemctl restart emacs --user' 
+alias re='systemctl restart emacs --user'
 alias de='emacs -nw --debug-init'
 
 # Rails Job
 alias d='ssh Dealer'
 alias dfs='sshfs Dealer:/home/afsmnghr ~/Dealer'
 alias dufs='fusermount -u ~/Dealer'
-alias rails='sh ~/.rails.sh'
-alias rsense='cd $RSENSE_HOME/bin && ruby rsense server &'  
+alias rails='sh ~/.bin/app/rails.sh'
+alias rsense='cd $RSENSE_HOME/bin && ruby rsense server &'
+
+# Android
+alias android='go-mtpfs ~/Android'
+
+# Game
+alias room='cd "/home/afsmnghr/.wine/drive_c/Program Files (x86)/R.G. Mechanics/The Room" && wine TheRoom.exe'
 
 # Git
 alias gst='git status'
@@ -29,11 +36,18 @@ alias gca='git commit -v -a'
 alias gb='git branch'
 alias gba='git branch -a'
 alias gco='git checkout'
-alias gcob='git checkout -b'
+alias gcob='gcob'
 alias gcot='git checkout -t'
 alias gcotb='git checkout --track -b'
 alias glog='git log'
-alias glogp='git log --pretty=format:"%h %s" --graph'
+alias glogp='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
+alias gbc="git branch | grep -v '*' | grep -v 'master' | grep -v 'develop' | xargs git branch -D"
+
+function gcob () {
+BRANCH="$1"
+git checkout master
+git checkout -b "$BRANCH"
+}
 
 # Ls
 alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
@@ -43,6 +57,7 @@ alias l.='ls -d .* --color=auto'
 
 # Grep
 alias grep='grep --color=tty -d skip'
+alias hs='history | grep '
 
 # Etc
 alias df='df -h'                          # human-readable sizes
@@ -58,7 +73,7 @@ alias cp='cp -i'                          # confirm before overwriting something
 alias rm='rm -I --preserve-root'
 alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
-alias chgrp='chgrp --preserve-root' 
+alias chgrp='chgrp --preserve-root'
 
 # Cd
 alias ..='cd ..'
