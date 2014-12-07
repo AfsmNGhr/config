@@ -294,6 +294,17 @@
         </finalactions>
       </action>
     </keybind>
+    <!-- Keybindings Brightness -->
+    <keybind key="XF86MonBrightnessUp">
+      <action name="Execute">
+        <command>xbacklight +10</command>
+      </action>
+    </keybind>
+    <keybind key="XF86MonBrightnessDown">
+      <action name="Execute">
+        <command>xbacklight -10</command>
+      </action>
+    </keybind>
     <!-- Keybindings for window switching with the arrow keys -->
     <keybind key="W-S-Right">
       <action name="DirectionalCycleWindows">
@@ -447,9 +458,9 @@
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
-          <name>/usr/share/xmind/XMind</name>
+          <name>XMind</name>
         </startupnotify>
-        <command>/usr/share/xmind/XMind -nosplash</command>
+        <command>/usr/lib/xmind/XMind -nosplash</command>
       </action>
     </keybind>
     <keybind key="w-x">
@@ -944,7 +955,7 @@
       <maximized>true</maximized>
       <layer>normal</layer>
     </application>
-    <application name="/usr/share/xmind/XMind">
+    <application name="XMind">
       <desktop>4</desktop>
       <fullscreen>yes</fullscreen>
       <layer>above</layer>

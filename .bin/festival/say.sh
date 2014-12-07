@@ -14,5 +14,7 @@ fi
 echo "$1" | text2wave -o $data/saytext_$i.wav -eval $ru > /dev/null 2>&1
 amixer set Master 40% > /dev/null 2>&1
 aplay $data/saytext_$i.wav > /dev/null 2>&1
+# cvlc --play-and-exit $data/saytext_$i.wav > /dev/null 2>&1
+# echo "$1" | festival --tts --language russian
 amixer -D pulse set Master $volume% > /dev/null 2>&1
 rm -f $data/saytext_$i.wav

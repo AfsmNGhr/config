@@ -23,7 +23,7 @@ alias rsense='cd $RSENSE_HOME/bin && ruby rsense server &'
 alias android='go-mtpfs ~/Android'
 
 # Game
-alias room='cd "/home/afsmnghr/.wine/drive_c/Program Files (x86)/R.G. Mechanics/The Room" && wine TheRoom.exe'
+alias room='cd "/home//afsmnghr/.wine/drive_c/Program Files (x86)/R.G. Mechanics/The Room" && wine TheRoom.exe'
 
 # Git
 alias gst='git status'
@@ -93,3 +93,4 @@ alias iptl='sudo iptables -L -n -v --line-numbers'
 alias iptlin='sudo iptables -L INPUT -n -v --line-numbers'
 alias iptlout='sudo iptables -L OUTPUT -n -v --line-numbers'
 alias iptlfw='sudo iptables -L FORWARD -n -v --line-numbers'
+alias tor='ssh -f -N -L 9050:localhost:9050 Xsrv'
