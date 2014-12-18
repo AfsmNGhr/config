@@ -1,0 +1,19 @@
+#
+# /home/afsmnghr/.nvidia-settings-rc
+#
+# Configuration file for nvidia-settings - the NVIDIA X Server Settings utility
+# Generated on Sat Oct  4 00:57:58 2014
+#
+
+# ConfigProperties:
+
+RcFileLocale = C
+ToolTips = Yes
+DisplayStatusBar = Yes
+SliderTextEntries = Yes
+IncludeDisplayNameInConfigFile = No
+ShowQuitDialog = Yes
+UpdateRulesOnProfileNameChange = Yes
+
+# Attributes:
+

@@ -14,10 +14,7 @@ alias de='emacs -nw --debug-init'
 
 # Rails Job
 alias d='ssh Dealer'
-alias dfs='sshfs Dealer:/home/afsmnghr ~/Dealer'
-alias dufs='fusermount -u ~/Dealer'
 alias rails='sh ~/.bin/app/rails.sh'
-alias rsense='cd $RSENSE_HOME/bin && ruby rsense server &'
 
 # Android
 alias android='go-mtpfs ~/Android'
@@ -93,4 +90,6 @@ alias iptl='sudo iptables -L -n -v --line-numbers'
 alias iptlin='sudo iptables -L INPUT -n -v --line-numbers'
 alias iptlout='sudo iptables -L OUTPUT -n -v --line-numbers'
 alias iptlfw='sudo iptables -L FORWARD -n -v --line-numbers'
+
+# Darknet
 alias tor='ssh -f -N -L 9050:localhost:9050 Xsrv'
