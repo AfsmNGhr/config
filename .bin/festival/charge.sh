@@ -1,10 +1,8 @@
 #!/bin/bash
 
 scripts="$HOME/.bin/festival/"
-# charge=$(acpi -b | grep -o [0-9]* | sed "2 ! d")
-charge=41
+charge=$(cat /sys/class/power_supply/BAT0/capacity)
 procent=$(${scripts}pluralform.sh $charge процент процента процентов)
-# status=$(acpi -b | cut -d " " -f 3 | cut -d "," -f 1)
 status=$(cat /sys/class/power_supply/BAT0/status)
 text=$(echo "Заряд батареи $charge $procent")
 critical="Критический заряд батареи."
