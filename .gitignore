@@ -256,6 +256,8 @@ pip-log.txt
 .recentf
 .msf4/
 .python_history
+.pry_history
+.gmail.yml
 
 # config
 .config/ImageMagick/

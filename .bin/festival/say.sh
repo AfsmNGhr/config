@@ -12,7 +12,12 @@ then i=$(($i+1));
 fi
 
 echo "$1" | text2wave -o $data/saytext_$i.wav -eval $ru > /dev/null 2>&1
-amixer set Master 68% > /dev/null 2>&1
+amixer set Master 67% > /dev/null 2>&1
 aplay $data/saytext_$i.wav > /dev/null 2>&1
-amixer set Master $volume% > /dev/null 2>&1
+
+aplay=$(ps -el | grep aplay | wc -l)
+if [ $aplay -eq 0 ];
+then amixer set Master $volume% > /dev/null 2>&1;
+fi
+
 rm -f $data/saytext_$i.wav
