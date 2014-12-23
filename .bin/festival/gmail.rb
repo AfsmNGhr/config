@@ -4,7 +4,6 @@ require 'yaml'
 
 Gmail.new("login", "password") do |gmail|
 
-  gmail.peek = true
   @festival = "$HOME/.bin/festival/"
   @labels = {"INBOX" => "Входящие", "Search job" => "Поиск работы",
              "Music" => "Музыка", "Advertising" => "Реклама",
@@ -36,7 +35,7 @@ Gmail.new("login", "password") do |gmail|
 
   def check_new_counts_letters(counts, old_counts)
     counts.each do |k, v|
-      if old_counts.empty? || v < old_counts[k]
+      if old_counts.empty? || v <= old_counts[k]
         count = v
       else
         if v > old_counts[k]
@@ -51,10 +50,13 @@ Gmail.new("login", "password") do |gmail|
     unless count == 0
       text = pluralform(count)
       count = "Одно" if count == 1
+      all = "У вас #{count} #{text}"
+      part = "#{count} #{text} в разделе #{@labels[k]}"
+
       if k == "INBOX"
-        system("#{@festival}say.sh 'У вас #{count} #{text}'")
+        system("#{@festival}say.sh '#{all}'")
       else
-        system("#{@festival}say.sh '#{count} #{text} в разделе #{@labels[k]}'")
+        system("#{@festival}say.sh '#{part}'")
       end
     end
   end
