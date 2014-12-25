@@ -93,3 +93,14 @@ alias iptlfw='sudo iptables -L FORWARD -n -v --line-numbers'
 
 # Darknet
 alias tor='ssh -f -N -L 9050:localhost:9050 Xsrv'
+
+# Mail
+alias gmail='gmail'
+
+function gmail() {
+cd ~/.bin/festival/data/
+if test -f ".gmail.yml";
+then rm .gmail.yml
+fi
+ruby gmail.rb
+}

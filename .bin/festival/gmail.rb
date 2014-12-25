@@ -35,12 +35,10 @@ Gmail.new("login", "password") do |gmail|
 
   def check_new_counts_letters(counts, old_counts)
     counts.each do |k, v|
-      if old_counts.empty? || v <= old_counts[k]
+      if old_counts.empty? || v < old_counts[k]
         count = v
       else
-        if v > old_counts[k]
-          count = v - old_counts[k]
-        end
+        count = v - old_counts[k]
       end
       say_new_counts(k, count)
     end
@@ -49,7 +47,7 @@ Gmail.new("login", "password") do |gmail|
   def say_new_counts(k, count)
     unless count == 0
       text = pluralform(count)
-      count = "Одно" if count == 1
+      count = "Одн+о" if count == 1
       all = "У вас #{count} #{text}"
       part = "#{count} #{text} в разделе #{@labels[k]}"
 
@@ -64,9 +62,9 @@ Gmail.new("login", "password") do |gmail|
   def pluralform(count)
     n = count % 100
     m = n % 10
-    msg = ['н+овое сообщение',
-           'н+овых сообщения',
-           'н+овых сообщений']
+    msg = ['сообщение',
+           'сообщения',
+           'сообщений']
 
     if n > 10 && n < 20
       return msg[2]
