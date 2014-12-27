@@ -5,10 +5,10 @@ ru="(voice_msu_ru_nsh_clunits)"
 volume=$(amixer | grep -o [0-9]* | sed "5 ! d")
 i=$(ls -r $data | grep -o [0-9]* | sed "1 ! d")
 date=$(date | grep -o [0-9]* | sed "2 ! d")
-xbacklight=$(xbacklight)
+xbacklight=$(xbacklight -get)
 lid=$(grep -q closed /proc/acpi/button/lid/*/state)
 
-if [ $xbacklight != 0.000000 ] || [ $? = 0 ]
+if [ $xbacklight != 0.000000 ] && [ $? != 0 ]
 then
 
     if test -z "$i"
