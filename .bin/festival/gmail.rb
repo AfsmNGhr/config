@@ -1,10 +1,11 @@
 # coding: utf-8
 require 'gmail'
+require 'fest'
 require 'yaml'
 
 Gmail.new("login", "password") do |gmail|
 
-  @festival = "$HOME/.bin/festival/"
+  @fest = Fest.new
   @labels = {"INBOX" => "Входящие", "Search job" => "Поиск работы",
              "Music" => "Музыка", "Advertising" => "Реклама",
              "Education" => "Обучение", "Interesting" => "Интересное"}
@@ -52,9 +53,9 @@ Gmail.new("login", "password") do |gmail|
       part = "#{count} #{text} в разделе #{@labels[k]}"
 
       if k == "INBOX"
-        system("#{@festival}say.sh '#{all}'")
+        @fest.say(all)
       else
-        system("#{@festival}say.sh '#{part}'")
+        @fest.say(part)
       end
     end
   end

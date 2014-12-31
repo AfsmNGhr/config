@@ -7,6 +7,7 @@ alias remove='sudo pacman -Rns $(pacman -Qtdq)'
 alias firewall=iptl
 alias ping='ping -c 100 -s.2'
 alias lsps='ps -elf | grep'
+alias backlight='xbacklight -set 0'
 
 # Emacs
 alias re='systemctl restart emacs --user'
