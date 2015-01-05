@@ -9,5 +9,6 @@ xset -dpms; xset s off &
 tint2 &
 
 ## Startup
-pnmixer &
+## pnmixer & # need install
+parcellite -n &
 setxkbmap -layout "us,ru" -option "grp:caps_toggle" &

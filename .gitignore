@@ -313,7 +313,7 @@ Video
 scripts
 
 # festival
-.bin/festival/data/
+.bin/festival/
 
 # Emacs temp
 *.#*

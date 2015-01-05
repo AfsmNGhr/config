@@ -8,6 +8,7 @@ alias firewall=iptl
 alias ping='ping -c 100 -s.2'
 alias lsps='ps -elf | grep'
 alias backlight='xbacklight -set 0'
+alias volume='amixer | grep -o "[0-9]*" | sed "5 ! d"'
 
 # Emacs
 alias re='systemctl restart emacs --user'
