@@ -6,7 +6,7 @@ alias update='sudo yaourt -Syu --aur'
 alias remove='sudo pacman -Rns $(pacman -Qtdq)'
 alias firewall=iptl
 alias ping='ping -c 100 -s.2'
-alias lsps='ps -elf | grep'
+alias lsps='ps -el | grep'
 alias backlight='xbacklight -set 0'
 alias volume='amixer | grep -o "[0-9]*" | sed "5 ! d"'
 
@@ -14,15 +14,12 @@ alias volume='amixer | grep -o "[0-9]*" | sed "5 ! d"'
 alias re='systemctl restart emacs --user'
 alias de='emacs -nw --debug-init'
 
-# Rails Job
-alias d='ssh Dealer'
-alias rails='sh ~/.bin/app/rails.sh'
-
 # Android
 alias android='go-mtpfs ~/Android'
+alias undroid='sudo umount ~/Android'
 
 # Game
-alias room='cd "/home//afsmnghr/.wine/drive_c/Program Files (x86)/R.G. Mechanics/The Room" && wine TheRoom.exe'
+alias solar='cd "/home/afsmnghr/.wine/drive_c/Program Files (x86)/Sins of a Solar Empire Rebellion/" && wine "Sins of a Solar Empire Rebellion.exe"'
 
 # Git
 alias gst='git status'
@@ -40,7 +37,7 @@ alias gcot='git checkout -t'
 alias gcotb='git checkout --track -b'
 alias glog='git log'
 alias glogp='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
-alias gbc="git branch | grep -v '*' | grep -v 'master' | grep -v 'develop' | xargs git branch -D"
+alias gbc="git branch | grep -v '*' | grep -v '{master,develop}' | xargs git branch -D"
 
 function gcob () {
 BRANCH="$1"

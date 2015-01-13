@@ -400,7 +400,7 @@
           <enabled>true</enabled>
           <name>mc</name>
         </startupnotify>
-        <command>sh ~/.bin/app/mc.sh</command>
+        <command>terminator -e mc</command>
       </action>
     </keybind>
     <keybind key="W-n">
@@ -408,9 +408,9 @@
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
-          <name>vlc</name>
+          <name>xbmc</name>
         </startupnotify>
-        <command>vlc</command>
+        <command>xbmc</command>
       </action>
     </keybind>
     <keybind key="W-u">

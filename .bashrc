@@ -18,7 +18,9 @@ xhost +local:root > /dev/null 2>&1
 complete -cf sudo
 set -o emacs
 
+shopt -s autocd
 shopt -s cdspell
+shopt -s globstar
 shopt -s checkwinsize
 shopt -s cmdhist
 shopt -s dotglob
@@ -28,9 +30,11 @@ shopt -s histappend
 shopt -s hostcomplete
 shopt -s nocaseglob
 
+export HISTTIMEFORMAT='%F %T '
 export HISTSIZE=10000
 export HISTFILESIZE=${HISTSIZE}
 export HISTCONTROL=ignoreboth
+export HISTIGNORE="&:ls:[bf]g:exit:[ ]*:ssh:history"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export RSENSE_HOME="/opt/rsense-0.3"
 export EDITOR=/usr/bin/nano
