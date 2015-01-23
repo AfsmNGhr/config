@@ -14,6 +14,18 @@ alias volume='amixer | grep -o "[0-9]*" | sed "5 ! d"'
 alias re='systemctl restart emacs --user'
 alias de='emacs -nw --debug-init'
 
+# Kvm
+alias toogle-kvm='toogle-kvm'
+function toogle-kvm () {
+status=$(systemctl status libvirtd.service | awk '/Active:/{printf $2}')
+if [ "$status" == 'active' ]
+then
+sudo systemctl stop libvirtd.service
+else
+sudo systemctl start libvirtd.service
+fi
+}
+
 # Android
 alias android='go-mtpfs ~/Android'
 alias undroid='sudo umount ~/Android'

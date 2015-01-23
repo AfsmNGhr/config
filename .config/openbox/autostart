@@ -2,7 +2,8 @@
 compton -CGb &
 
 ## Background
-nitrogen --restore &
+## nitrogen --restore &
+sh ~/.fehbg &
 xset -dpms; xset s off &
 
 ## Panel

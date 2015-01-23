@@ -258,8 +258,14 @@ pip-log.txt
 .python_history
 .pry_history
 .gmail.yml
+.fehbg
+.mysql_history
 
 # config
+.kodi/
+.lein/
+.config/bleachbit/
+.config/htop/
 .config/ImageMagick/
 .config/Thunar/
 .config/Trolltech.conf

@@ -408,9 +408,9 @@
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
-          <name>xbmc</name>
+          <name>kodi</name>
         </startupnotify>
-        <command>xbmc</command>
+        <command>kodi</command>
       </action>
     </keybind>
     <keybind key="W-u">

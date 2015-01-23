@@ -54,7 +54,7 @@ our $SCHEMA = [
    {item => ['thunar',      		'Thunar','thunar']},
    {item => ['terminator',   	 	'Terminator','terminator']},
    {item => ['gnome-screenshot --interactive',  'Screenshot','gnome-screenshot']},
-   {item => ['nitrogen',   	 	'Nitrogen','nitrogen']},
+   # {item => ['nitrogen',   	 	'Nitrogen','nitrogen']},
    {sep => undef},
 
     #          NAME            LABEL                ICON
