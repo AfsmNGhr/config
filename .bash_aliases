@@ -15,8 +15,9 @@ alias re='systemctl restart emacs --user'
 alias de='emacs -nw --debug-init'
 
 # Kvm
-alias toogle-kvm='toogle-kvm'
-function toogle-kvm () {
+alias toggle-kvm='toggle-kvm'
+
+function toggle-kvm () {
 status=$(systemctl status libvirtd.service | awk '/Active:/{printf $2}')
 if [ "$status" == 'active' ]
 then
@@ -49,7 +50,7 @@ alias gcot='git checkout -t'
 alias gcotb='git checkout --track -b'
 alias glog='git log'
 alias glogp='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
-alias gbc="git branch | grep -v '*' | grep -v '{master,develop}' | xargs git branch -D"
+alias gbc="git branch | grep -v '*' | grep -v 'master' | grep -v 'develop' | xargs git branch -D"
 
 function gcob () {
 BRANCH="$1"
