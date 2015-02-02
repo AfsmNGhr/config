@@ -11,6 +11,7 @@ alias backlight='xbacklight -set 0'
 alias volume='amixer | grep -o "[0-9]*" | sed "5 ! d"'
 
 # Emacs
+alias e='emacsclient -t'
 alias re='systemctl restart emacs --user'
 alias de='emacs -nw --debug-init'
 
@@ -35,6 +36,7 @@ alias undroid='sudo umount ~/Android'
 alias solar='cd "/home/afsmnghr/.wine/drive_c/Program Files (x86)/Sins of a Solar Empire Rebellion/" && wine "Sins of a Solar Empire Rebellion.exe"'
 
 # Git
+alias gdf='git diff'
 alias gst='git status'
 alias gl='git pull'
 alias gp='git push'

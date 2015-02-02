@@ -35,9 +35,8 @@ export HISTSIZE=10000
 export HISTFILESIZE=${HISTSIZE}
 export HISTCONTROL=ignoreboth
 export HISTIGNORE="&:ls:[bf]g:exit:[ ]*:ssh:history"
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export RSENSE_HOME="/opt/rsense-0.3"
-export EDITOR=/usr/bin/nano
+export TERM=xterm-256color
+export EDITOR='emacsclient -t'
 
 ex ()
 {

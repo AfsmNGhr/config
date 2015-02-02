@@ -298,11 +298,7 @@ pip-log.txt
 .config/vlc/
 .config/xfce/
 .config/xfce4/
-.config/autostart/gnome-keyring-gpg.desktop
-.config/autostart/gnome-keyring-pkcs11.desktop
-.config/autostart/gnome-keyring-secrets.desktop
-.config/autostart/gnome-keyring-ssh.desktop
-.config/autostart/nm-applet.desktop
+.config/autostart/
 
 # dir
 Datatrash
