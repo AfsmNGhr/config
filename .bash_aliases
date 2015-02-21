@@ -8,7 +8,10 @@ alias firewall=iptl
 alias ping='ping -c 100 -s.2'
 alias lsps='ps -el | grep'
 alias backlight='xbacklight -set 0'
+
+# Volume
 alias volume='amixer | grep -o "[0-9]*" | sed "5 ! d"'
+alias 30='amixer set Master 30%'
 
 # Emacs
 alias e='emacsclient -t'
@@ -17,7 +20,6 @@ alias de='emacs -nw --debug-init'
 
 # Kvm
 alias toggle-kvm='toggle-kvm'
-
 function toggle-kvm () {
 status=$(systemctl status libvirtd.service | awk '/Active:/{printf $2}')
 if [ "$status" == 'active' ]
@@ -25,15 +27,15 @@ then
 sudo systemctl stop libvirtd.service
 else
 sudo systemctl start libvirtd.service
-fi
-}
+fi }
 
 # Android
 alias android='go-mtpfs ~/Android'
 alias undroid='sudo umount ~/Android'
 
-# Game
-alias solar='cd "/home/afsmnghr/.wine/drive_c/Program Files (x86)/Sins of a Solar Empire Rebellion/" && wine "Sins of a Solar Empire Rebellion.exe"'
+# Wine
+alias stamina='wine "/home/afsmnghr/.wine/drive_c/Program Files (x86)/\
+Stamina/Stamina.exe"'
 
 # Git
 alias gdf='git diff'
@@ -47,23 +49,26 @@ alias gca='git commit -v -a'
 alias gb='git branch'
 alias gba='git branch -a'
 alias gco='git checkout'
-alias gcob='gcob'
 alias gcot='git checkout -t'
 alias gcotb='git checkout --track -b'
 alias glog='git log'
-alias glogp='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
-alias gbc="git branch | grep -v '*' | grep -v 'master' | grep -v 'develop' | xargs git branch -D"
+alias glogp='git log --graph --full-history --all --color \
+--pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
+alias gbc="git branch | grep -v '*' | grep -v 'master' | \
+grep -v 'develop' | xargs git branch -D"
 
-function gcob () {
+alias gcob='
 BRANCH="$1"
 git checkout master
-git checkout -b "$BRANCH"
-}
+git checkout -b "$BRANCH"'
 
 # Ls
-alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
-alias ll='ls -l --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
-alias la='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
+alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" \
+--color=auto -F'
+alias ll='ls -l --group-directories-first --time-style=+"%d.%m.%Y %H:%M" \
+--color=auto -F'
+alias la='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" \
+--color=auto -F'
 alias l.='ls -d .* --color=auto'
 
 # Grep
@@ -109,12 +114,6 @@ alias iptlfw='sudo iptables -L FORWARD -n -v --line-numbers'
 alias tor='ssh -f -N -L 9050:localhost:9050 Xsrv'
 
 # Mail
-alias gmail='gmail'
-
-function gmail() {
-cd ~/.bin/festival/data/
-if test -f ".gmail.yml";
-then rm .gmail.yml
-fi
-ruby gmail.rb
-}
+alias gmail="
+rm .gmail.yml if test -f ".gmail.yml"
+~/.bin/festival/data/gmail"
