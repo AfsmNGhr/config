@@ -37,6 +37,7 @@ export HISTCONTROL=ignoreboth
 export HISTIGNORE="&:ls:[bf]g:exit:[ ]*:ssh:history"
 export TERM=xterm-256color
 export EDITOR='nano'
+export LD_LIBRARY_PATH=/usr/local/lib
 
 ex ()
 {

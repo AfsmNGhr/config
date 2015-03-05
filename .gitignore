@@ -315,8 +315,9 @@ Torrent
 Video
 scripts
 
-# festival
+# festival & sphinx
 .bin/festival/
+.bin/sphinx/
 
 # Emacs temp
 *.#*

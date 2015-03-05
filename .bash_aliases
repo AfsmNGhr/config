@@ -9,12 +9,15 @@ alias ping='ping -c 100 -s.2'
 alias lsps='ps -el | grep'
 alias backlight='xbacklight -set 0'
 
+# Weather
+alias weather='~/.bin/festival/weather'
+
 # Volume
 alias volume='amixer | grep -o "[0-9]*" | sed "5 ! d"'
 alias 30='amixer set Master 30%'
 
 # Record
-alias rec='ffmpeg -f alsa -i pulse -f x11grab -r 25 -s 1600x900 \
+alias record='ffmpeg -f alsa -i pulse -f x11grab -r 25 -s 1600x900 \
 -i :0.0 -q:v 1 -q:a 1 -pix_fmt yuv420p -y output.mkv'
 
 # Emacs
@@ -24,7 +27,7 @@ alias de='emacs -nw --debug-init'
 
 # Kvm
 alias toggle-kvm='toggle-kvm'
-function toggle-kvm () {
+toggle-kvm () {
 status=$(systemctl status libvirtd.service | awk '/Active:/{printf $2}')
 if [ "$status" == 'active' ]
 then
