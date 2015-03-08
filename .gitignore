@@ -261,6 +261,8 @@ pip-log.txt
 .fehbg
 .mysql_history
 .slime/
+.subversion/
+.gnome/
 
 # config
 .kodi/
