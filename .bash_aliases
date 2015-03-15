@@ -124,3 +124,8 @@ alias tor='ssh -f -N -L 9050:localhost:9050 Xsrv'
 alias gmail="
 rm .gmail.yml if test -f ".gmail.yml"
 ~/.bin/festival/data/gmail"
+
+# Development
+alias Fest='cd ~/Documents/Work/fest'
+alias Fest-scripts='cd ~/.bin/festival'
+alias Work='cd ~/Documents/Work'
