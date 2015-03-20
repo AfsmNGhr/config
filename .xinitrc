@@ -44,6 +44,7 @@ sed 's/_user_/'$(whoami)'/' ~/.config/obmenu-generator/config.pl -i
 #exec $1
 
 ## Set a single desktop environment
+#exec awesome
 exec openbox-session
 #exec xfce4-session
 #exec gnome-session
