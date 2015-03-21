@@ -323,3 +323,6 @@ scripts
 
 # Emacs temp
 *.#*
+
+# Spectrwm
+.dmenu_cache

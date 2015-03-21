@@ -36,6 +36,7 @@ sed 's/_user_/'$(whoami)'/' ~/.config/obmenu-generator/config.pl -i
 
 parcellite -n &
 setxkbmap -layout "us,ru" -option "grp:caps_toggle"
+feh  --bg-scale '/home/afsmnghr/Pictures/Wallpaper/wzcoT.jpg'
 
 ## Enable SLiM to enable selection of multiple desktop environments, or
 ## set a single session. Only one or the other must be unhashed! In either
