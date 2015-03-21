@@ -1,15 +1,15 @@
 ## Basic compositing effects
-compton -CGb &
+##compton -CGb &
 
 ## Background
 ## nitrogen --restore &
 sh ~/.fehbg &
-xset -dpms; xset s off &
+## xset -dpms; xset s off &
 
 ## Panel
-tint2 &
+## tint2 &
 
 ## Startup
 ## pnmixer & # need install
 parcellite -n &
-setxkbmap -layout "us,ru" -option "grp:caps_toggle" &
+setxkbmap -layout "us,ru" -option "grp:caps_toggle"

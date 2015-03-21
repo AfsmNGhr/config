@@ -9,6 +9,11 @@ alias ping='ping -c 100 -s.2'
 alias lsps='ps -el | grep'
 alias backlight='xbacklight -set 0'
 
+# Startup
+alias Stime='sudo systemd-analyze'
+alias Btime='Stime blame'
+alias Ctime='Stime critical-chain'
+
 # Weather
 alias weather='~/.bin/festival/weather'
 
@@ -23,7 +28,7 @@ alias record='ffmpeg -f alsa -i pulse -f x11grab -r 25 -s 1600x900 \
 # Emacs
 alias e='emacsclient -t'
 alias re='systemctl restart emacs --user'
-alias ref="kill $(ps -el | awk '/emacsclient/{printf $4}')
+alias ref="kill -16 $(ps -el | awk '/emacsclient/{printf $4}')
 systemctl restart emacs --user"
 alias de='emacs -nw --debug-init'
 

@@ -1,4 +1,3 @@
-
 #!/bin/sh
 
 #
@@ -6,7 +5,7 @@
 #
 # Executed by startx (run your window manager from here)
 #
-# Written by Phil Muller 
+# Written by Phil Muller
 
 
 ## Ensure that the D-Bus Communication System is running properly to fix
@@ -19,7 +18,7 @@ fi
 
 ## Ensure that GTK themes are applied uniformly in the Desktop Environment
 
-export GTK2_RC_FILES="$HOME/.gtkrc-2.0" 
+#export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
 
 ## Where the default Home folders have not already been created, generate them
@@ -35,6 +34,8 @@ fi
 sed 's/_user_/'$(whoami)'/' ~/.config/obmenu-generator/schema.pl -i
 sed 's/_user_/'$(whoami)'/' ~/.config/obmenu-generator/config.pl -i
 
+parcellite -n &
+setxkbmap -layout "us,ru" -option "grp:caps_toggle"
 
 ## Enable SLiM to enable selection of multiple desktop environments, or
 ## set a single session. Only one or the other must be unhashed! In either
@@ -44,8 +45,10 @@ sed 's/_user_/'$(whoami)'/' ~/.config/obmenu-generator/config.pl -i
 #exec $1
 
 ## Set a single desktop environment
+exec spectrwm
+#exec i3
 #exec awesome
-exec openbox-session
+#exec openbox-session
 #exec xfce4-session
 #exec gnome-session
 #exec startkde
