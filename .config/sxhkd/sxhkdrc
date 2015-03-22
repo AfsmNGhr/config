@@ -95,6 +95,9 @@ super + p
 super + e
   xterm & sleep .8s && compton-trans -o 86
 
+super + w
+  firefox-nightly
+
 ####                            ####
 ###           Fn keys            ###
 ####                            ####
