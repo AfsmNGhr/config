@@ -1,53 +1,15 @@
 #!/bin/sh
 
-#
-# ~/.xinitrc
-#
-# Executed by startx (run your window manager from here)
-#
-# Written by Phil Muller
-
-## Ensure that the D-Bus Communication System is running properly to fix
-## File management, authentication, and other essential system processes
-
-if which dbus-launch >/dev/null && test -z "$DBUS_SESSION_BUS_ADDRESS"; then
-    eval "$(dbus-launch --sh-syntax --exit-with-session)"
-fi
-
-## Ensure that GTK themes are applied uniformly in the Desktop Environment
-
-#export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
-
-## Where the default Home folders have not already been created, generate them
-
-if [ -x /usr/bin/xdg-user-dirs-update ]; then
-   /usr/bin/xdg-user-dirs-update
-fi
-
-## My servises load ...
-
+## Load my servises ...
+compton -CGb &
+xset -dpms; xset s off &
 parcellite -n &
 setxkbmap -layout "us,ru" -option "grp:caps_toggle"
-feh --bg-scale '/home/afsmnghr/Pictures/Wallpaper/wzcoT.jpg'
-#sxhkd &
+~/.fehbg
+sxhkd &
 
-## Enable SLiM to enable selection of multiple desktop environments, or
-## set a single session. Only one or the other must be unhashed! In either
-## instance, /etc/slim.conf must also be amended accordingly.
+## Set Xresources to be sourced ...
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
-## Enable multiple desktop environments
-#exec $1
-
-## Set a single desktop environment
-#exec bspwm
-exec spectrwm
-#exec i3
-#exec awesome
-#exec openbox-session
-#exec xfce4-session
-#exec gnome-session
-#exec startkde
-#exec cinnamon-session
-#exec razor-session
-#exec lxsession
-#exec mate-session
+## load wm ...
+exec bspwm
