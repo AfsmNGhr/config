@@ -14,6 +14,12 @@ super + r
 super + t
   bspc desktop -l next
 
+super + g
+  bspc desktop -F horizontal
+
+super + v
+  bspc desktop -F vertical
+
 super + b
   bspc desktop -B
 
