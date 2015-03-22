@@ -116,3 +116,9 @@ XF86MonBrightnessDown
 
 XF86MonBrightnessUp
   xbacklight -inc 10
+
+Print
+  scrot -u -e 'mv $f ~/Pictures/Shots'
+
+super + Print
+  scrot -e 'mv $f ~/Pictures/Shots'
