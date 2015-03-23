@@ -5,6 +5,7 @@
 compton -cGb &
 xset -dpms; xset s off &
 parcellite -n &
+start-pulseaudio-x11
 setxkbmap -layout "us,ru" -option "grp:caps_toggle"
 sxhkd &
 
