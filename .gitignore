@@ -267,7 +267,6 @@ pip-log.txt
 # config
 .kodi/
 .lein/
-.config/bleachbit/
 .config/htop/
 .config/ImageMagick/
 .config/Thunar/
@@ -275,32 +274,24 @@ pip-log.txt
 .config/chromium/
 .config/dconf/
 .config/deadbeef/
-.config/executables/
 .config/gconf/
 .config/gtk-2.0/
 .config/gtk-3.0/
 .config/libreoffice/
-.config/lxsession
-.config/lxsession-default-apps/
 .config/mc/
 .config/menus/
 .config/mimeapps.list
-.config/nitrogen/
-.config/obmenu-generator/icons.db
 .config/parcellite/
 .config/pavucontrol.ini
 .config/pnmixer/
 .config/pulse/
 .config/systemd/
-.config/terminator/
-.config/tint2/
 .config/transmission/
 .config/user-dirs.dirs
 .config/user-dirs.locale
 .config/vlc/
 .config/xfce/
 .config/xfce4/
-.config/autostart/
 
 # dir
 Datatrash
