@@ -1,7 +1,7 @@
 # System
 alias info='inxi -Fxz'
 alias battery='acpi -b'
-alias fail='systemctl list-units -a | grep failed'
+alias fail='systemctl --failed'
 alias update='sudo yaourt -Syu --aur'
 alias remove='sudo pacman -Rns $(pacman -Qtdq)'
 alias firewall=iptl
