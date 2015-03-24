@@ -93,7 +93,7 @@ super + p
   dmenu_run
 
 super + e
-  xterm & sleep .8s && compton-trans -o 86
+  xterm
 
 super + w
   firefox-nightly
