@@ -90,7 +90,7 @@ super + @button{1-3}
 ####                            ####
 
 super + p
-  dmenu_run
+  dmenu_wrapper
 
 super + e
   xterm
