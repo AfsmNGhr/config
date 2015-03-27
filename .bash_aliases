@@ -1,5 +1,4 @@
 # System
-alias info='inxi -Fxz'
 alias battery='acpi -b'
 alias fail='systemctl --failed'
 alias update='sudo yaourt -Syu --aur'
