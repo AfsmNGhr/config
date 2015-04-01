@@ -43,8 +43,8 @@ systemctl restart emacs --user"
 alias de='emacs -nw --debug-init'
 
 # Kvm
-alias toggle-kvm='toggle-kvm'
-toggle-kvm () {
+alias kvm='kvm'
+kvm () {
 status=$(systemctl status libvirtd.service | awk '/Active:/{printf $2}')
 if [ "$status" == 'active' ]
 then
