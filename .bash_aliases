@@ -13,6 +13,17 @@ alias Stime='sudo systemd-analyze'
 alias Btime='Stime blame'
 alias Ctime='Stime critical-chain'
 
+# Torrent
+alias torrent='torrent'
+torrent () {
+status=$(systemctl status transmission.service | awk '/Active:/{printf $2}')
+if [ "$status" == 'active' ]
+then
+sudo systemctl stop transmission.service
+else
+sudo systemctl start transmission.service
+fi }
+
 # Weather
 alias weather='~/.bin/festival/weather'
 
