@@ -1,8 +1,7 @@
 # System
-alias battery='acpi -b'
 alias fail='systemctl --failed'
 alias update='yaourt -Syua'
-alias remove='sudo pacman -Rnsc $(pacman -Qtdq)'
+alias remove='sudo pacman -Rnsc $(pacman -Qtdq);sudo pacman -Scc --noconfirm'
 alias firewall=iptl
 alias ping='ping -c 100 -s.2'
 alias lsps='ps -el | grep'
