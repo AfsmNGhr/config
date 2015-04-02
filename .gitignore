@@ -293,6 +293,17 @@ pip-log.txt
 .config/xfce/
 .config/xfce4/
 
+# mpd
+.config/mpd/playlists/
+.config/mpd/state
+.config/mpd/pid
+.config/mpd/db
+.config/mpd/log
+
+# ncmpcpp
+.ncmpcpp/lyrics/
+.ncmpcpp/error.log
+
 # dir
 Datatrash
 Desktop/
@@ -315,5 +326,5 @@ scripts
 # Emacs temp
 *.#*
 
-# Spectrwm
+# dmenu
 .dmenu_cache
