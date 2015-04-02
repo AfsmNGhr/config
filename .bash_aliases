@@ -14,9 +14,18 @@ alias Ctime='Stime critical-chain'
 
 # Music
 alias Player='ncmpcpp'
+alias mpd='mpd'
+mpd () {
+status=$(systemctl status mpd --user | awk '/Active:/{printf $2}')
+if [ "$status" == 'active' ]
+then
+systemctl stop mpd --user
+else
+systemctl start mpd --user
+fi }
 
 # Torrent
-alias torrent='torrent'
+alias Torrent='torrent'
 torrent () {
 status=$(systemctl status transmission | awk '/Active:/{printf $2}')
 if [ "$status" == 'active' ]
