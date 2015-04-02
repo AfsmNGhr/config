@@ -1,7 +1,7 @@
 # System
 alias fail='systemctl --failed'
 alias update='yaourt -Syua'
-alias remove='sudo pacman -Rnsc $(pacman -Qtdq);sudo pacman -Scc --noconfirm'
+alias remove='sudo pacman -Rnsc $(pacman -Qtdq)'
 alias firewall=iptl
 alias ping='ping -c 100 -s.2'
 alias lsps='ps -el | grep'
@@ -12,15 +12,18 @@ alias Stime='sudo systemd-analyze'
 alias Btime='Stime blame'
 alias Ctime='Stime critical-chain'
 
+# Music
+alias Player='ncmpcpp'
+
 # Torrent
 alias torrent='torrent'
 torrent () {
-status=$(systemctl status transmission.service | awk '/Active:/{printf $2}')
+status=$(systemctl status transmission | awk '/Active:/{printf $2}')
 if [ "$status" == 'active' ]
 then
-sudo systemctl stop transmission.service
+sudo systemctl stop transmission
 else
-sudo systemctl start transmission.service
+sudo systemctl start transmission
 fi }
 
 # Weather
@@ -37,19 +40,19 @@ alias record='ffmpeg -f alsa -i pulse -f x11grab -r 25 -s 1600x900 \
 # Emacs
 alias e='emacsclient -t'
 alias re='systemctl restart emacs --user'
-alias ref="kill -16 $(ps -el | awk '/emacsclient/{printf $4}')
+alias ref="killall $(ps -el | awk '/emacsclient/{printf $4}')
 systemctl restart emacs --user"
 alias de='emacs -nw --debug-init'
 
 # Kvm
 alias kvm='kvm'
 kvm () {
-status=$(systemctl status libvirtd.service | awk '/Active:/{printf $2}')
+status=$(systemctl status libvirtd | awk '/Active:/{printf $2}')
 if [ "$status" == 'active' ]
 then
-sudo systemctl stop libvirtd.service
+sudo systemctl stop libvirtd
 else
-sudo systemctl start libvirtd.service
+sudo systemctl start libvirtd
 fi }
 
 # Android
@@ -57,8 +60,8 @@ alias android='go-mtpfs ~/Android'
 alias undroid='sudo umount ~/Android'
 
 # Wine
-alias stamina='wine "/home/afsmnghr/.wine/drive_c/Program Files (x86)/\
-Stamina/Stamina.exe"'
+# alias stamina='wine "/home/afsmnghr/.wine/drive_c/Program Files (x86)/\
+# Stamina/Stamina.exe"'
 
 # Git
 alias gdf='git diff'
