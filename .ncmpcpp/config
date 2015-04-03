@@ -24,7 +24,7 @@ playlist_display_mode = classic
 progressbar_color = red
 progressbar_elapsed_color = green
 main_window_color = red
-main_window_highlight_color = black
+main_window_highlight_color = green
 active_column_color = blue
 
 visualizer_fifo_path = "/tmp/mpd.fifo"

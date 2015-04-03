@@ -39,7 +39,7 @@ export TERM=xterm-256color
 export EDITOR='nano'
 export LD_LIBRARY_PATH=/usr/local/lib
 
-[ -n "$XTERM_VERSION" ] && compton-trans -o 86
+#[ -n "$XTERM_VERSION" ] && compton-trans -o 86
 
 ex ()
 {
