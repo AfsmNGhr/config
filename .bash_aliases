@@ -1,5 +1,5 @@
 # System
-alias Info='alsi -n arch --red -t -u ~/.config/alsi/alsi.conf'
+alias Info='alsi -n arch -t -u ~/.config/alsi/alsi.conf'
 alias fail='systemctl --failed'
 alias update='yaourt -Syua'
 alias remove='sudo pacman -Rnsc $(pacman -Qtdq)'
