@@ -33,7 +33,7 @@ systemctl start mpd --user
 fi
 }
 
-neoclassical () {
+Neoclassical () {
 mpd-enable
 mpc clear
 mpc load neoclassical
@@ -91,8 +91,6 @@ alias record='ffmpeg -f alsa -i pulse -f x11grab -r 25 -s 1600x900 \
 # Emacs
 alias e='emacsclient -t'
 alias re='systemctl restart emacs --user'
-alias ref="killall $(ps -el | awk '/emacsclient/{printf $4}')
-systemctl restart emacs --user"
 alias de='emacs -nw --debug-init'
 
 # Kvm
