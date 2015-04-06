@@ -15,7 +15,7 @@ alias Ctime='Stime critical-chain'
 
 # Music
 alias Player='ncmpcpp'
-alias mpd='mpd'
+
 mpd () {
 status=$(systemctl status mpd --user | awk '/Active:/{printf $2}')
 if [ "$status" == 'active' ]
@@ -25,8 +25,49 @@ else
 systemctl start mpd --user
 fi }
 
+mpd-enable () {
+status=$(systemctl status mpd --user | awk '/Active:/{printf $2}')
+if [ "$status" != 'active' ]
+then
+systemctl start mpd --user
+fi
+}
+
+neoclassical () {
+mpd-enable
+mpc clear
+mpc load neoclassical
+mpc play
+}
+
+flac-reaper () {
+cuebreakpoints *.cue | shnsplit -o flac *.flac
+cuetag.sh *.cue split-track*.flac
+rm "$(ls *.flac | grep -v 'split-track')"
+rm *.cue
+flack-fix
+}
+
+flac-fix () {
+for a in *.flac; do
+ARTIST=`metaflac "$a" --show-tag=ARTIST | sed s/.*=//g`
+TITLE=`metaflac "$a" --show-tag=TITLE | sed s/.*=//g`
+if [ "$ARTIST" == '' ]
+then
+mv "$a" "$TITLE.flac"
+else
+mv "$a" "$ARTIST - $TITLE.flac"
+fi
+done
+}
+
+flac-set-artist () {
+for a in *.flac; do
+metaflac "$a" --set-tag ARTIST="$1"
+done
+}
+
 # Torrent
-alias Torrent='torrent'
 torrent () {
 status=$(systemctl status transmission | awk '/Active:/{printf $2}')
 if [ "$status" == 'active' ]
@@ -55,7 +96,6 @@ systemctl restart emacs --user"
 alias de='emacs -nw --debug-init'
 
 # Kvm
-alias kvm='kvm'
 kvm () {
 status=$(systemctl status libvirtd | awk '/Active:/{printf $2}')
 if [ "$status" == 'active' ]
@@ -151,7 +191,7 @@ alias tor='ssh -f -N -L 9050:localhost:9050 Xsrv'
 
 # Mail
 alias gmail="
-rm .gmail.yml if test -f ".gmail.yml"
+rm ~/.gmail.yml if test -f "~/.gmail.yml"
 ~/.bin/festival/data/gmail"
 
 # Development
