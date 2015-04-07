@@ -14,7 +14,8 @@ alias Btime='Stime blame'
 alias Ctime='Stime critical-chain'
 
 # Music
-alias Player='ncmpcpp'
+alias Playlist='~/.bin/app/playlist'
+alias Flac='~/.bin/app/flac'
 
 mpd () {
 status=$(systemctl status mpd --user | awk '/Active:/{printf $2}')
@@ -24,48 +25,6 @@ systemctl stop mpd --user
 else
 systemctl start mpd --user
 fi }
-
-mpd-enable () {
-status=$(systemctl status mpd --user | awk '/Active:/{printf $2}')
-if [ "$status" != 'active' ]
-then
-systemctl start mpd --user
-fi
-}
-
-Neoclassical () {
-mpd-enable
-mpc clear
-mpc load neoclassical
-mpc play
-}
-
-flac-reaper () {
-cuebreakpoints *.cue | shnsplit -o flac *.flac
-cuetag.sh *.cue split-track*.flac
-rm "$(ls *.flac | grep -v 'split-track')"
-rm *.cue
-flack-fix
-}
-
-flac-fix () {
-for a in *.flac; do
-ARTIST=`metaflac "$a" --show-tag=ARTIST | sed s/.*=//g`
-TITLE=`metaflac "$a" --show-tag=TITLE | sed s/.*=//g`
-if [ "$ARTIST" == '' ]
-then
-mv "$a" "$TITLE.flac"
-else
-mv "$a" "$ARTIST - $TITLE.flac"
-fi
-done
-}
-
-flac-set-artist () {
-for a in *.flac; do
-metaflac "$a" --set-tag ARTIST="$1"
-done
-}
 
 # Torrent
 torrent () {

@@ -1,0 +1,21 @@
+#!/bin/bash
+
+status=$(systemctl status mpd --user | awk '/Active:/{printf $2}')
+
+if [ "$status" != 'active' ]
+then
+    systemctl start mpd --user
+    sleep 6
+fi
+
+mpc clear
+
+case $1 in
+    g|G) mpc load gothic       ;;
+    f|F) mpc load futurepop    ;;
+    n|N) mpc load neoclassical ;;
+    j|J) mpc load jrock        ;;
+    *) mpc load neoclassical   ;;
+esac
+
+mpc play

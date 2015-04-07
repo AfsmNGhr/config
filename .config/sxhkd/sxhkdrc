@@ -98,6 +98,9 @@ super + e
 super + w
   firefox-nightly
 
+super + n
+  thunar
+
 ####                            ####
 ###           Fn keys            ###
 ####                            ####
