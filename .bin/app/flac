@@ -31,7 +31,7 @@ flac-help () {
     echo "Usage:"
     echo "      $0"
     echo "Main options:"
-    echo "    -a  --artist  : set ARTIST=$2 for all songs"
+    echo "    -a  --artist  : set ARTIST for all songs"
     echo "    -f  --fix     : fix songs name ARTIST - TITLE or TITLE"
     echo "    -r  --reaper  : cut flac on tracks and add metatags"
     echo "    -h  --help    : print help and exit"
