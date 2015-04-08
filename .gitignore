@@ -292,6 +292,7 @@ pip-log.txt
 .config/vlc/
 .config/xfce/
 .config/xfce4/
+.config/Skype/
 
 # mpd
 .config/mpd/playlists/

@@ -1,14 +1,6 @@
 #!/bin/bash
 
-flac-reaper () {
-    cuebreakpoints *.cue | shnsplit -o flac *.flac
-    cuetag.sh *.cue split-track*.flac
-    rm "$(ls *.flac | grep -v 'split-track')"
-    rm *.cue
-    flack-fix
-}
-
-flac-fix () {
+fix () {
     for a in *.flac; do
         ARTIST=`metaflac "$a" --show-tag=ARTIST | sed s/.*=//g`
         TITLE=`metaflac "$a" --show-tag=TITLE | sed s/.*=//g`
@@ -21,13 +13,21 @@ flac-fix () {
     done
 }
 
-flac-set-artist () {
+reaper () {
+    cuebreakpoints *.cue | shnsplit -o flac *.flac
+    cuetag.sh *.cue split-track*.flac
+    rm "$(ls *.flac | grep -v 'split-track')"
+    rm *.cue
+    flack-fix
+}
+
+artist () {
     for a in *.flac; do
         metaflac "$a" --set-tag ARTIST="$2"
     done
 }
 
-flac-help () {
+help () {
     echo "Usage:"
     echo "      $0"
     echo "Main options:"
@@ -38,13 +38,13 @@ flac-help () {
 }
 
 case $1 in
-        -a|--artist) fiac-set-artist ;;
-        -r|--reaper) flac-reaper     ;;
-        -f|--fix)    flac-fix        ;;
-        -h|--help)   flac-help       ;;
+        -a|--artist)  artist     ;;
+        -r|--reaper)  reaper     ;;
+        -f|--fix)     fix        ;;
+        -h|--help)    help       ;;
         *)
             echo "'$1' is not valid command"
-            flac-help
+            help
             ;;
 esac
 
