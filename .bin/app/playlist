@@ -19,4 +19,4 @@ case $1 in
 esac
 
 mpc play
-notify-send "`mpc current`" -t 3
+notify-send "    `mpc current`" -t 3
