@@ -66,10 +66,6 @@ fi }
 alias android='go-mtpfs ~/Android'
 alias undroid='sudo umount ~/Android'
 
-# Wine
-# alias stamina='wine "/home/afsmnghr/.wine/drive_c/Program Files (x86)/\
-# Stamina/Stamina.exe"'
-
 # Git
 alias gdf='git diff'
 alias gst='git status'

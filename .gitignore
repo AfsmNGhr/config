@@ -293,6 +293,8 @@ pip-log.txt
 .config/xfce/
 .config/xfce4/
 .config/Skype/
+.config/libfm/
+.config/pcmanfm/
 
 # mpd
 .config/mpd/playlists/

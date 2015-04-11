@@ -99,7 +99,7 @@ super + w
   firefox-nightly
 
 super + n
-  thunar
+  pcmanfm
 
 ####                            ####
 ###           Fn keys            ###
@@ -118,10 +118,10 @@ XF86AudioMute
   amixer set Master toggle
 
 XF86MonBrightnessDown
-  xbacklight -dec 5 && notify-send "     Brightness:  `xbacklight | cut -d '.' -f 1`" -t 3
+  xbacklight -set 0
 
 XF86MonBrightnessUp
-  xbacklight -inc 5 && notify-send "     Brightness:  `xbacklight | cut -d '.' -f 1`" -t 3
+  xbacklight -set 100
 
 XF86AudioNext
   mpc next && notify-send "     `mpc current`" -t 3
