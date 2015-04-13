@@ -1,0 +1,79 @@
+#!/bin/bash
+
+delimiter () {
+    echo "                   "
+    echo "*=================*"
+    echo "                   "
+}
+
+add () {
+    delimiter
+    mpc clear
+    mpc add "$2"
+    if [ "$3" == '' ];
+    then
+        echo "$2"
+        mpc save "$2"
+    else
+        echo "$3"
+        mpc save "$3"
+    fi
+    delimiter
+    mpc play
+    notify-send "    `mpc current`" -t 3
+    delimiter
+    echo "     Playlists    "
+    delimiter
+    mpc lsplaylists
+    delimiter
+}
+
+remove () {
+    rm ~/.config/mpd/playlists/"$2.m3u"
+}
+
+load () {
+    status=$(systemctl status mpd --user | awk '/Active:/{printf $2}')
+
+    if [ "$status" != 'active' ]
+    then
+        systemctl start mpd --user
+        sleep 6
+    fi
+    mpc clear
+
+    case $2 in
+        g|G)      mpc load gothic       ;;
+        f|F)      mpc load futurepop    ;;
+        n|N)      mpc load neoclassical ;;
+        j|J)      mpc load jrock        ;;
+        *)
+            mpc load neoclassical
+            ;;
+    esac
+
+    mpc play
+    notify-send "    `mpc current`" -t 3
+}
+
+help () {
+    echo "Usage:"
+    echo "      $0"
+    echo "Main options:"
+    echo "    -a  --add     : add playlist with name or dirname and start"
+    echo "    -r  --remove  : remove playist"
+    echo "    -h  --help    : print help and exit"
+}
+
+case $1 in
+    -a|--add)     add      ;;
+    -l|--load)    load     ;;
+    -r|--remove)  remove   ;;
+    -h|--help)    help     ;;
+    *)
+        echo "'$1' is not valid command"
+        help
+        ;;
+esac
+
+exit 0
