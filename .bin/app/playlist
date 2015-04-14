@@ -1,22 +1,87 @@
 #!/bin/bash
+set -x
 
-status=$(systemctl status mpd --user | awk '/Active:/{printf $2}')
+delimiter () {
+    echo "                   "
+    echo "*=================*"
+    echo "                   "
+}
 
-if [ "$status" != 'active' ]
-then
-    systemctl start mpd --user
-    sleep 6
-fi
+add () {
+    delimiter
+    mpc clear
+    mpc add $1
+    echo "$2"
+    if [[ $2 == '' ]];
+    then
+        mpc save $1
+    else
+        mpc save $2
+    fi
+    delimiter
+    mpc play
+    notify-send "    `mpc current`" -t 3
+    delimiter
+    echo "     Playlists    "
+    delimiter
+    mpc lsplaylists
+    delimiter
+}
 
-mpc clear
+remove () {
+    rm ~/.config/mpd/playlists/"$1.m3u"
+}
+
+load () {
+    status=$(systemctl status mpd --user | awk '/Active:/{printf $2}')
+
+    if [ "$status" != 'active' ]
+    then
+        systemctl start mpd --user
+        sleep 6
+    fi
+    mpc clear
+
+    case $1 in
+        g|G)
+            mpc load gothic
+            ;;
+        f|F)
+            mpc load futurepop
+            ;;
+        n|N)
+            mpc load neoclassical
+            ;;
+        j|J)
+            mpc load jrock
+            ;;
+        *)
+            mpc load neoclassical
+            ;;
+    esac
+
+    mpc play
+    notify-send "    `mpc current`" -t 3
+}
+
+help () {
+    echo "Usage:"
+    echo "      $0"
+    echo "Main options:"
+    echo "    -a  --add     : add playlist with name or dirname and start"
+    echo "    -r  --remove  : remove playist"
+    echo "    -h  --help    : print help and exit"
+}
 
 case $1 in
-    g|G) mpc load gothic       ;;
-    f|F) mpc load futurepop    ;;
-    n|N) mpc load neoclassical ;;
-    j|J) mpc load jrock        ;;
-    *) mpc load neoclassical   ;;
+    -a|--add)     add $2             ;;
+    -l|--load)    load $2 $3         ;;
+    -r|--remove)  remove $2          ;;
+    -h|--help)    help               ;;
+    *)
+        echo "'$1' is not valid command"
+        help
+        ;;
 esac
 
-mpc play
-notify-send "    `mpc current`" -t 3
+exit 0
