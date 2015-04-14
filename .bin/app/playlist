@@ -6,7 +6,18 @@ delimiter () {
     echo "                   "
 }
 
+mpd () {
+    status=$(systemctl status mpd --user | awk '/Active:/{printf $2}')
+
+    if [ "$status" != 'active' ]
+    then
+        systemctl start mpd --user
+        sleep 6
+    fi
+}
+
 add () {
+    mpd
     delimiter
     mpc clear
     mpc add "$1"
@@ -31,13 +42,7 @@ remove () {
 }
 
 load () {
-    status=$(systemctl status mpd --user | awk '/Active:/{printf $2}')
-
-    if [ "$status" != 'active' ]
-    then
-        systemctl start mpd --user
-        sleep 6
-    fi
+    mpd
     mpc clear
 
     case $1 in
