@@ -1,5 +1,4 @@
 #!/bin/bash
-set -x
 
 delimiter () {
     echo "                   "
@@ -10,13 +9,12 @@ delimiter () {
 add () {
     delimiter
     mpc clear
-    mpc add $1
-    echo "$2"
-    if [[ $2 == '' ]];
+    mpc add "$1"
+    if [ "$2" == '' ];
     then
-        mpc save $1
+        mpc save "$1"
     else
-        mpc save $2
+        mpc save "$2"
     fi
     delimiter
     mpc play
@@ -74,10 +72,10 @@ help () {
 }
 
 case $1 in
-    -a|--add)     add $2             ;;
-    -l|--load)    load $2 $3         ;;
-    -r|--remove)  remove $2          ;;
-    -h|--help)    help               ;;
+    -a|--add)     add $2 $3        ;;
+    -l|--load)    load $2          ;;
+    -r|--remove)  remove $2        ;;
+    -h|--help)    help             ;;
     *)
         echo "'$1' is not valid command"
         help
