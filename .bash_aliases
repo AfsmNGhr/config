@@ -152,3 +152,6 @@ alias Fest='cd ~/Documents/Work/fest'
 alias Fest-scripts='cd ~/.bin/festival'
 alias Work='cd ~/Documents/Work'
 alias Jekyll='cd ~/Documents/Work/jekyll'
+
+# Rails
+alias Dev-FF-rails='ssh -f -N -L 192.168.1.4:3000:localhost:3000 Dev-FF'
