@@ -12,7 +12,7 @@ mpd () {
     if [ "$status" != 'active' ]
     then
         systemctl start mpd --user
-        sleep 6
+        sleep 3
     fi
 }
 
@@ -72,6 +72,7 @@ help () {
     echo "      $0"
     echo "Main options:"
     echo "    -a  --add     : add playlist with name or dirname and start"
+    echo "    -l  --load    : load playist"
     echo "    -r  --remove  : remove playist"
     echo "    -h  --help    : print help and exit"
 }
