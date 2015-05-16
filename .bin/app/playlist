@@ -18,6 +18,7 @@ mpd () {
 
 add () {
     mpd
+    mpc update
     delimiter
     mpc clear
     mpc add "$1"
