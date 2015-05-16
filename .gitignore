@@ -295,6 +295,7 @@ pip-log.txt
 .config/Skype/
 .config/libfm/
 .config/pcmanfm/
+.config/teamviewer9/
 
 # mpd
 .config/mpd/playlists/
