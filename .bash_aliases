@@ -16,6 +16,8 @@ alias Ctime='Stime critical-chain'
 # Music
 alias Playlist='~/.bin/app/playlist'
 alias Flac='~/.bin/app/flac'
+alias vlc="vlc.run --play-and-exit $*
+amixer set Master 30% > /dev/null 2>&1"
 
 mpd () {
 status=$(systemctl status mpd --user | awk '/Active:/{printf $2}')
