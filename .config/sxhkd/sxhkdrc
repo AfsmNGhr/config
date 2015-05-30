@@ -95,9 +95,6 @@ super + p
 super + e
   xterm
 
-super + a
-  emacsclient -nc
-
 super + w
   firefox-nightly
 
