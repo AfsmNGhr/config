@@ -16,8 +16,7 @@ alias Ctime='Stime critical-chain'
 # Music
 alias Playlist='~/.bin/app/playlist'
 alias Flac='~/.bin/app/flac'
-alias vlc="vlc.run --play-and-exit $*
-amixer set Master 30% > /dev/null 2>&1"
+alias vlc='vlc.run $1'
 
 mpd () {
 status=$(systemctl status mpd --user | awk '/Active:/{printf $2}')
@@ -50,7 +49,7 @@ alias record='ffmpeg -f alsa -i pulse -f x11grab -r 25 -s 1600x900 \
 -i :0.0 -q:v 1 -q:a 1 -pix_fmt yuv420p -y output.mkv'
 
 # Emacs
-alias e='emacsclient -t'
+alias e='emacsclient -nw -a=""'
 alias re='systemctl restart emacs --user'
 alias de='emacs -nw --debug-init'
 
