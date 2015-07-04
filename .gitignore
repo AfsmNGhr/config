@@ -286,7 +286,7 @@ pip-log.txt
 .config/pnmixer/
 .config/pulse/
 .config/systemd/
-.config/transmission/
+.config/transmission-daemon/
 .config/user-dirs.dirs
 .config/user-dirs.locale
 .config/vlc/
