@@ -4,8 +4,7 @@
 ~/.fehbg
 compton -cGb &
 xset -dpms; xset s off &
-parcellite -dn &
-start-pulseaudio-x11
+parcellite -n &
 setxkbmap -layout "us,ru" -option "grp:caps_toggle"
 sxhkd &
 
