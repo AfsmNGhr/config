@@ -296,6 +296,7 @@ pip-log.txt
 .config/libfm/
 .config/pcmanfm/
 .config/teamviewer9/
+.config/pavucontrol*
 
 # mpd
 .config/mpd/playlists/
@@ -330,6 +331,8 @@ scripts
 
 # Emacs temp
 *.#*
+.slime-history.eld
 
 # dmenu
 .dmenu_cache
+

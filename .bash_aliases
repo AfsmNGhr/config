@@ -16,8 +16,6 @@ alias Ctime='Stime critical-chain'
 # Music
 alias Playlist='~/.bin/app/playlist'
 alias Flac='~/.bin/app/flac'
-alias vlc='vlc.run --play-and-exit $*
-amixer set Master 30% > /dev/null 2>&1'
 
 mpd () {
 status=$(systemctl status mpd --user | awk '/Active:/{printf $2}')
@@ -37,9 +35,6 @@ sudo systemctl stop transmission
 else
 sudo systemctl start transmission
 fi }
-
-# Weather
-alias weather='~/.bin/festival/weather'
 
 # Volume
 alias volume='amixer | grep -o "[0-9]*" | sed "5 ! d"'
