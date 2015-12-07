@@ -309,13 +309,11 @@ pip-log.txt
 .ncmpcpp/lyrics/
 .ncmpcpp/error.log
 
-# dir
-Datatrash
+# dirs
 Desktop/
 Documents
 Downloads/
 Education
-Guests
 Image
 Music
 Pentest
@@ -323,7 +321,6 @@ Pictures/
 Torrent
 TorrentTemp/
 Video
-scripts
 
 # festival & sphinx
 .bin/festival/
@@ -331,8 +328,9 @@ scripts
 
 # Emacs temp
 *.#*
-.slime-history.eld
+
+# history
+*history*
 
 # dmenu
 .dmenu_cache
-

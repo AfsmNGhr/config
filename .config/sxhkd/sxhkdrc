@@ -43,6 +43,9 @@ super + y
 super + m
   bspc window -s biggest
 
+super + h
+  thunar
+
 super + {_,shift + }{j,k,i,l}
   bspc window -{f,s} {left,down,up,right}
 
@@ -96,7 +99,7 @@ super + e
   xterm
 
 super + a
-  xterm -e 'export TERM=xterm-256color && emacsclient -nw -a=""'
+  xterm -e 'export TERM=xterm-256color && emacsclient -t -a ""'
 
 super + w
   firefox-nightly

@@ -17,6 +17,9 @@ alias Ctime='Stime critical-chain'
 alias Playlist='~/.bin/app/playlist'
 alias Flac='~/.bin/app/flac'
 
+# Wifi
+alias Wifi='~/.bin/app/wifi'
+
 mpd () {
 status=$(systemctl status mpd --user | awk '/Active:/{printf $2}')
 if [ "$status" == 'active' ]
@@ -24,6 +27,16 @@ then
 systemctl stop mpd --user
 else
 systemctl start mpd --user
+fi }
+
+# Docker
+Docker () {
+status=$(systemctl status docker | awk '/Active:/{printf $2}')
+if [ "$status" == 'active' ]
+then
+sudo systemctl stop docker
+else
+sudo systemctl start docker
 fi }
 
 # Torrent
@@ -151,4 +164,4 @@ alias Work='cd ~/Documents/Work'
 alias Jekyll='cd ~/Documents/Work/jekyll'
 
 # Rails
-alias Dev-FF-rails='ssh -f -N -L 192.168.1.4:3000:localhost:3000 Dev-FF'
+alias hopox="~/.bin/app/hopox"
