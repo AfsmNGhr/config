@@ -20,6 +20,12 @@ alias Flac='~/.bin/app/flac'
 # Wifi
 alias Wifi='~/.bin/app/wifi'
 
+# Exit
+alias Exit='~/.bin/app/exit'
+
+# Sphinx
+alias Sphinx='~/.bin/app/sphinx'
+
 mpd () {
 status=$(systemctl status mpd --user | awk '/Active:/{printf $2}')
 if [ "$status" == 'active' ]
@@ -165,3 +171,14 @@ alias Jekyll='cd ~/Documents/Work/jekyll'
 
 # Rails
 alias hopox="~/.bin/app/hopox"
+Apt-cacher () {
+  container=$(docker ps | grep apts | wc -l)
+  if [ "$container" == 1 ]
+  then
+    docker rm -f apts
+  else
+    docker run --name apts -d -p 3142:3142 \
+    -v /var/cache/apt_cacher:/var/cache/apt-cacher-ng \
+    extellisys/apt-cacher-ng:latest
+  fi
+}
