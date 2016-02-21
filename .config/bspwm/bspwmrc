@@ -1,3 +1,11 @@
 #!/bin/sh
 
-bspc monitor -d • • • • • • • • • •
+# desktops
+bspc monitor -d I II III IV V VI VII VIII IX X
+
+# rules
+bspc window -t fullscreen
+bspc rule -a Firefox desktop=^1 fullscreen=true
+bspc rule -a chromium desktop=^5 fullscreen=true
+bspc rule -a skype desktop=^4 fullscreen=true
+bspc rule -a xterm fullscreen=true
