@@ -68,16 +68,6 @@ alias e='emacsclient -nw -a=""'
 alias re='systemctl restart emacs --user'
 alias de='emacs -nw --debug-init'
 
-# Kvm
-kvm () {
-status=$(systemctl status libvirtd | awk '/Active:/{printf $2}')
-if [ "$status" == 'active' ]
-then
-sudo systemctl stop libvirtd
-else
-sudo systemctl start libvirtd
-fi }
-
 # Android
 alias android='go-mtpfs ~/Android'
 alias undroid='sudo umount ~/Android'
@@ -158,6 +148,12 @@ alias iptlfw='sudo iptables -L FORWARD -n -v --line-numbers'
 # Darknet
 alias tor='ssh -f -N -L 9050:localhost:9050 Xsrv'
 
+wifite () {
+  docker run --rm -i -t --name wifite \
+  --privileged --net=host \
+  afsmnghr/kali-wifite
+}
+
 # Mail
 alias gmail="
 rm ~/.gmail.yml if test -f "~/.gmail.yml"
@@ -170,7 +166,7 @@ alias Work='cd ~/Documents/Work'
 alias Jekyll='cd ~/Documents/Work/jekyll'
 
 # Rails
-alias hopox="~/.bin/app/hopox"
+alias rails="~/.bin/app/rails"
 Apt-cacher () {
   container=$(docker ps | grep apts | wc -l)
   if [ "$container" == 1 ]

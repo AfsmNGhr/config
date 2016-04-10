@@ -1,0 +1,51 @@
+#!/bin/bash
+
+MODEL=$HOME/.bin/sphinx/zero_ru_cont_8k_v3/zero_ru.cd_cont_4000
+
+dict () {
+    perl $HOME/.bin/sphinx/ru4sphinx/text2dict/dict2transcript.pl $1 $2.dic
+}
+
+train () {
+    ~/.bin/app/sphinxtrain $MODEL $1 $2 $3
+}
+
+wav () {
+    rec -r 8k -e signed-integer -b 16 -c 1 $1.wav
+}
+
+check () {
+    pocketsphinx_continuous \
+        -samprate 8000 \
+        -lm $HOME/.sibylla/dict/lmbase.lm \
+        -dict $HOME/.sibylla/dict/my.dic \
+        -hmm $HOME/.sibylla/zero_ru_cont_8k_v3/acoustic/ \
+        -logfn /dev/null \
+        -remove_noise yes \
+        -infile $1
+}
+
+help () {
+    echo "Usage:"
+    echo "    $0"
+    echo "Main options:"
+    echo "    -t  --train  : train model for pocketsphinx"
+    echo "    -c  --check  : check wav file"
+    echo "    -w  --wav    : create wav file for adaptation model"
+    echo "    -d  --dict   : create dict for pocketsphinx"
+    echo "    -h  --help   : print help and exit"
+}
+
+case $1 in
+    -t|--train)  train $2 $3 $4      ;;
+    -c|--check)  check $2            ;;
+    -w|--wav)    wav $2              ;;
+    -d|--dict)   dict $2 $3          ;;
+    -h|--help)   help                ;;
+    *)
+        echo "'$1' is not valid command"
+        help
+        ;;
+esac
+
+exit 0

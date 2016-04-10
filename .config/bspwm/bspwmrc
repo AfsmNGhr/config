@@ -12,8 +12,7 @@ bspc config history_aware_focus true
 bspc monitor -d I II III IV V VI VII VIII IX X
 
 # rules
-bspc rule -a '*' state=fullscreen
 bspc rule -a Firefox desktop=^1 state=fullscreen
-bspc rule -a "*hromium*" desktop=^5 state=fullscreen
+bspc rule -a chromium desktop=^5 state=fullscreen
 bspc rule -a skype desktop=^4 state=floating
 bspc rule -a "xterm, Xterm" state=fullscreen

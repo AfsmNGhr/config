@@ -17,8 +17,8 @@ super + v
 super + b
   bspc desktop -B
 
-super + {s,f}
-  bspc node -t ~{floating,fullscreen}
+super + {t,s,f}
+  bspc node -t ~{tiled,floating,fullscreen}
 
 super + {grave,Tab}
   bspc {node,desktop} -f last

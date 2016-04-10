@@ -334,3 +334,13 @@ Video
 
 # dmenu
 .dmenu_cache
+.config/mpd/mpd_trouble.out
+.emacs.keyfreq
+.siege
+FiraxisLive
+.sibylla
+.node-gyp
+.config/configstore
+.docker/config
+*.env
+/.bin/app/wifi

@@ -39,10 +39,10 @@ export TERM=xterm-256color
 export EDITOR='emacsclient -t -a "nano"'
 export LD_LIBRARY_PATH=/usr/local/lib
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
-export VDPAU_DRIVER=va_gl
-export LIBVA_DRIVER_NAME=vdpau
+# export VDPAU_DRIVER=va_gl
+# export LIBVA_DRIVER_NAME=vdpau
 
-##[ -n "$XTERM_VERSION" ] && compton-trans -o 83 >/dev/null
+# [ -n "$XTERM_VERSION" ] && compton-trans -o 60 >/dev/null
 
 function active {
     xprop -root 32x '\t$0' _NET_ACTIVE_WINDOW | cut -f 2
