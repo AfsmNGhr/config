@@ -146,7 +146,11 @@ alias iptlout='sudo iptables -L OUTPUT -n -v --line-numbers'
 alias iptlfw='sudo iptables -L FORWARD -n -v --line-numbers'
 
 # Darknet
-alias tor='ssh -f -N -L 9050:localhost:9050 Xsrv'
+# alias tor='ssh -f -N -L 9050:localhost:9050 Xsrv'
+Tor () {
+  docker run --rm -i -t --name tor-proxy \
+  -p 9050:9050 afsmnghr/tor-proxy
+}
 
 wifite () {
   docker run --rm -i -t --name wifite \
