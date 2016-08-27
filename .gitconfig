@@ -10,10 +10,10 @@
 [credential]
   helper = cache --timeout=3600
 [rebase]
-	autostash = true
+  autostash = true
 [stash]
-	showPatch = true
+  showPatch = true
 [push]
-	default = simple
+  default = simple
 [merge]
   conflictStyle = diff3

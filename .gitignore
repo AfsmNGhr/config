@@ -333,6 +333,7 @@ Video
 *history*
 
 # dmenu
+.esd_auth
 .dmenu_cache
 .config/mpd/mpd_trouble.out
 .emacs.keyfreq
