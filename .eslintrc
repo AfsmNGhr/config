@@ -10,5 +10,7 @@ globals:
   angular: true
   browser: true
   element: true
+  '_':true
+  module: true
 settings:
   angular: 1

@@ -145,40 +145,6 @@ alias iptlin='sudo iptables -L INPUT -n -v --line-numbers'
 alias iptlout='sudo iptables -L OUTPUT -n -v --line-numbers'
 alias iptlfw='sudo iptables -L FORWARD -n -v --line-numbers'
 
-# Darknet
-# alias tor='ssh -f -N -L 9050:localhost:9050 Xsrv'
-Tor () {
-  docker run --rm -i -t --name tor-proxy \
-  -p 9050:9050 afsmnghr/tor-proxy
-}
-
-wifite () {
-  docker run --rm -i -t --name wifite \
-  --privileged --net=host \
-  afsmnghr/kali-wifite
-}
-
-# Mail
-alias gmail="
-rm ~/.gmail.yml if test -f "~/.gmail.yml"
-~/.bin/festival/data/gmail"
-
 # Development
-alias Fest='cd ~/Documents/Work/fest'
-alias Fest-scripts='cd ~/.bin/festival'
-alias Work='cd ~/Documents/Work'
-alias Jekyll='cd ~/Documents/Work/jekyll'
-
-# Rails
+alias emacs="cd ~/.docker/emacs && docker-compose run -u $UID --rm emacs"
 alias rails="~/.bin/app/rails"
-Apt-cacher () {
-  container=$(docker ps | grep apts | wc -l)
-  if [ "$container" == 1 ]
-  then
-    docker rm -f apts
-  else
-    docker run --name apts -d -p 3142:3142 \
-    -v /var/cache/apt_cacher:/var/cache/apt-cacher-ng \
-    extellisys/apt-cacher-ng:latest
-  fi
-}

@@ -6,12 +6,12 @@ branch () {
         git pull origin master
         git checkout "$1" || git checkout -b "$1"
         git pull origin -f "$1"
-        init && up
+        up
     fi
 }
 
 up () {
-    init && time docker-compose build app db
+    init # && time docker-compose build app db
     docker-compose up
 }
 
@@ -23,7 +23,7 @@ init () {
 }
 
 console () {
-    docker exec -it $(docker-compose ps | awk '/app/{printf $1}') /bin/bash
+    docker exec -it "$(docker-compose ps | awk '/app/{printf $1}')" /bin/bash
 }
 
 help () {
@@ -38,8 +38,8 @@ help () {
 
 case $1 in
     s|up)        up                        ;;
-    b|branch)    branch $2                 ;;
-    c|console)   console                   ;;
+    b|branch)    branch "$2"               ;;
+    c|console)   console "$2"              ;;
     h|help)      help                      ;;
     *)
         echo "'$1' is not valid command"

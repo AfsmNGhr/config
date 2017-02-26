@@ -333,12 +333,11 @@ Video
 *history*
 
 # dmenu
-.esd_auth
+./.esd_auth
 .dmenu_cache
 .config/mpd/mpd_trouble.out
 .emacs.keyfreq
 .siege
-FiraxisLive
 .sibylla
 .node-gyp
 .config/configstore
