@@ -233,7 +233,6 @@ pip-log.txt
 .adobe/
 .cache/
 .Xauthority
-.Xresources
 .dbus/
 .java/
 .lesshst

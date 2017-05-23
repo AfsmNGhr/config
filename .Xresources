@@ -1,0 +1,75 @@
+OBXft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
+!==============================================================================
+! XTerm
+!==============================================================================
+
+XTerm*utf8Title:        true
+XTerm*faceName:         Droid Sans Mono
+XTerm*faceSize:         11
+xterm*bolfFont:
+xterm*scrollBar:        false
+xterm*eightBitInput:    false
+xterm*metaSendsEscape:  true
+xterm*colorBDMode:      true
+xterm*boldMode:         on
+xterm*alwaysBoldMode:   false
+xterm*dynamicColors:    on
+xterm*colorMode:        on
+xterm*saveLines:        10000
+xterm*visualBell:       false
+XTerm*selectToClipboard: true
+xterm*ttyModes: erase ^?
+XTerm*VT100.*translations:      #override \
+        Shift Ctrl C: select-end(CLIPBOARD, CUT_BUFFER0) \n\
+                Shift Ctrl V: insert-selection(CLIPBOARD, CUT_BUFFER0)
+        <Key>BackSpace: string(0x7f)
+xterm*backarrowKeyIsErase: true
+! xterm*scrollTtyOutput: false
+
+!==============================================================================
+! Colors
+!==============================================================================
+
+xterm*colorBD:     #f78d62
+xterm*cursorColor: #f78d62
+xterm*background:  #000000
+xterm*foreground:  #f78d62
+
+! Black
+xterm*color0:      #000000
+xterm*color8:      #555753
+
+! Red
+xterm*color1:      #b6212d
+xterm*color9:      #ff6565
+
+! Green
+xterm*color2:      #4c8d00
+xterm*color10:     #6bbe1a
+
+! Yellow
+xterm*color3:      #ff8040
+xterm*color11:     #e6d51d
+
+! Blue
+xterm*color4:      #0086d2
+xterm*color12:     #00d2ff
+
+! Magenta
+xterm*color5:      #963c59
+xterm*color13:     #d3649f
+
+! Cyan
+xterm*color6:      #105952
+xterm*color14:     #177f75
+
+! White
+xterm*color7:      #cdcaa9
+xterm*color15:     #ffffff
