@@ -110,20 +110,16 @@ alias grep='grep --color=tty -d skip'
 alias hs='history | grep '
 
 # Etc
-alias df='df -h'                          # human-readable sizes
+alias df='df -h'
 alias du='du -ch'
-alias free='free -m'                      # show sizes in MB
+alias free='free -m'
 alias np='nano PKGBUILD'
 
 # Safely actions
 alias mv='mv -i'
 alias cp='cp -i'
 alias ln='ln -i'
-alias cp='cp -i'                          # confirm before overwriting something
-alias rm='rm -I --preserve-root'
-alias chown='chown --preserve-root'
-alias chmod='chmod --preserve-root'
-alias chgrp='chgrp --preserve-root'
+alias cp='cp -i'
 
 # Cd
 alias ..='cd ..'
@@ -143,6 +139,3 @@ alias iptl='sudo iptables -L -n -v --line-numbers'
 alias iptlin='sudo iptables -L INPUT -n -v --line-numbers'
 alias iptlout='sudo iptables -L OUTPUT -n -v --line-numbers'
 alias iptlfw='sudo iptables -L FORWARD -n -v --line-numbers'
-
-# Development
-alias rails="~/.bin/app/rails"
