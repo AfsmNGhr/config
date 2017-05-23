@@ -63,7 +63,7 @@ super + e
   xterm
 
 super + a
-  xterm -e 'export TERM=xterm-256color && emacsclient -t -a ""'
+  xterm -e 'export TERM=xterm-256color && dockemacs'
 
 super + w
   firefox-nightly

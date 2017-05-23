@@ -36,7 +36,7 @@ export HISTFILESIZE=${HISTSIZE}
 export HISTCONTROL=ignoreboth
 export HISTIGNORE="&:ls:[bf]g:exit:[ ]*:ssh:history"
 export TERM=xterm-256color
-export EDITOR='emacsclient -t -a "nano"'
+export EDITOR='nano'
 export LD_LIBRARY_PATH=/usr/local/lib
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 # export VDPAU_DRIVER=va_gl
@@ -96,3 +96,5 @@ esac
 # if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
 #     exec startx
 # fi
+export PATH=/home/afsmnghr/.emacs.d/bin:/home/afsmnghr/.rvm/gems/ruby-2.3.0/bin:/home/afsmnghr/.rvm/gems/ruby-2.3.0@global/bin:/home/afsmnghr/.rvm/rubies/ruby-2.3.0/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/afsmnghr/.rvm/bin
+export PATH=/home/afsmnghr/.docker/firefox/bin:/home/afsmnghr/.emacs.d/bin:/home/afsmnghr/.rvm/gems/ruby-2.3.0/bin:/home/afsmnghr/.rvm/gems/ruby-2.3.0@global/bin:/home/afsmnghr/.rvm/rubies/ruby-2.3.0/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/afsmnghr/.rvm/bin

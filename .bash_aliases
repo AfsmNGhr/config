@@ -66,7 +66,6 @@ alias record='ffmpeg -f alsa -i pulse -f x11grab -r 25 -s 1600x900 \
 # Emacs
 alias e='emacsclient -nw -a=""'
 alias re='systemctl restart emacs --user'
-alias de='emacs -nw --debug-init'
 
 # Android
 alias android='go-mtpfs ~/Android'
@@ -146,5 +145,4 @@ alias iptlout='sudo iptables -L OUTPUT -n -v --line-numbers'
 alias iptlfw='sudo iptables -L FORWARD -n -v --line-numbers'
 
 # Development
-alias emacs="cd ~/.docker/emacs && docker-compose run -u $UID --rm emacs"
 alias rails="~/.bin/app/rails"
