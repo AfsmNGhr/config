@@ -97,11 +97,11 @@ git checkout master
 git checkout -b "$BRANCH"'
 
 # Ls
-alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" \
+alias ls='ls --time-style=+"%d.%m.%Y %H:%M" \
 --color=auto -F'
-alias ll='ls -l --group-directories-first --time-style=+"%d.%m.%Y %H:%M" \
+alias ll='ls -l --time-style=+"%d.%m.%Y %H:%M" \
 --color=auto -F'
-alias la='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" \
+alias la='ls -la --time-style=+"%d.%m.%Y %H:%M" \
 --color=auto -F'
 alias l.='ls -d .* --color=auto'
 
