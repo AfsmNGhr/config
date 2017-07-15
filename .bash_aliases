@@ -139,3 +139,18 @@ alias iptl='sudo iptables -L -n -v --line-numbers'
 alias iptlin='sudo iptables -L INPUT -n -v --line-numbers'
 alias iptlout='sudo iptables -L OUTPUT -n -v --line-numbers'
 alias iptlfw='sudo iptables -L FORWARD -n -v --line-numbers'
+
+alias tor='docker run -it \
+           -v /tmp/.X11-unix:/tmp/.X11-unix \
+           -e DISPLAY=unix$DISPLAY \
+           --device /dev/snd \
+           --name tor-browser \
+           jess/tor-browser'
+
+alias vga='
+xrandr --newmode "1680x1050_60.00"  146.25  1680 1784 1960 2240  1050 1053 1059 1089 -hsync +vsync
+xrandr --addmode VGA1 1680x1050_60.00
+xrandr --output VGA1 --mode 1680x1050_60.00
+xrandr --output LVDS1 --mode 1600x900 --fb 1600x900 --panning 1600x900
+xrandr --output LVDS1 --mode 1600x900 --fb 1680x1050_60.00 --panning 1680x1050_60.00
+'

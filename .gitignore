@@ -266,7 +266,6 @@ pip-log.txt
 # config
 .kodi/
 .lein/
-.config/htop/
 .config/ImageMagick/
 .config/Thunar/
 .config/Trolltech.conf
