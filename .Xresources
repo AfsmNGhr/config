@@ -25,6 +25,8 @@ xterm*colorMode:        on
 xterm*saveLines:        10000
 xterm*visualBell:       false
 XTerm*selectToClipboard: true
+XTerm*backarrowKey:         true
+XTerm*modifier:             meta
 xterm*ttyModes: erase ^?
 XTerm*VT100.*translations:      #override \
         Shift Ctrl C: select-end(CLIPBOARD, CUT_BUFFER0) \n\
