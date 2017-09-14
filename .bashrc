@@ -30,6 +30,8 @@ shopt -s histappend
 shopt -s hostcomplete
 shopt -s nocaseglob
 
+export LANG=en_US.UTF-8
+export LC_MESSAGES="C"
 export HISTTIMEFORMAT='%F %T '
 export HISTSIZE=10000
 export HISTFILESIZE=${HISTSIZE}
@@ -76,10 +78,15 @@ function parse_git_branch {
 
 case "$TERM" in
 	"dumb")
+      unsetopt zle
       unsetopt prompt_cr
       unsetopt prompt_subst
-      unfunction precmd
-      unfunction preexec
+      if whence -w precmd > /dev/null; then
+        unfunction precmd
+      fi
+      if whence -w preexec > /dev/null; then
+        unfunction preexec
+      fi
 	    PS1="> "
 	    ;;
 	xterm*|rxvt*|eterm*|screen*)
@@ -92,9 +99,3 @@ case "$TERM" in
 	    PS1="> "
 	    ;;
 esac
-
-# if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
-#     exec startx
-# fi
-export PATH=/home/afsmnghr/.emacs.d/bin:/home/afsmnghr/.rvm/gems/ruby-2.3.0/bin:/home/afsmnghr/.rvm/gems/ruby-2.3.0@global/bin:/home/afsmnghr/.rvm/rubies/ruby-2.3.0/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/afsmnghr/.rvm/bin
-export PATH=/home/afsmnghr/.docker/firefox/bin:/home/afsmnghr/.emacs.d/bin:/home/afsmnghr/.rvm/gems/ruby-2.3.0/bin:/home/afsmnghr/.rvm/gems/ruby-2.3.0@global/bin:/home/afsmnghr/.rvm/rubies/ruby-2.3.0/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/afsmnghr/.rvm/bin

@@ -60,8 +60,8 @@ alias volume='amixer | grep -o "[0-9]*" | sed "5 ! d"'
 alias 30='amixer set Master 30%'
 
 # Record
-alias record='ffmpeg -f alsa -i pulse -f x11grab -r 25 -s 1600x900 \
--i :0.0 -q:v 1 -q:a 1 -pix_fmt yuv420p -y output.mkv'
+alias record='ffmpeg -f alsa -i pulse -f x11grab -r 25 -s 1600x900 -i :0.0 -q:v 1 -q:a 1 -pix_fmt yuv420p -y output.mkv'
+alias capture='ffmpeg -f x11grab -r 25 -s 1600x900 -i :0.0+0,24 -vcodec libx264 -pix_fmt yuv420p10le -threads 0 -y output.mkv'
 
 # Emacs
 alias e='emacsclient -nw -a=""'
@@ -153,4 +153,14 @@ xrandr --addmode VGA1 1680x1050_60.00
 xrandr --output VGA1 --mode 1680x1050_60.00
 xrandr --output LVDS1 --mode 1600x900 --fb 1600x900 --panning 1600x900
 xrandr --output LVDS1 --mode 1600x900 --fb 1680x1050_60.00 --panning 1680x1050_60.00
+'
+
+alias dockemacs='
+docker run -it --rm --net=host \
+     --env-file $HOME/.dockemacs \
+     --entrypoint initialize "$@" \
+     -v $HOME:/mnt/workspace \
+     -v emacs_data:/home/emacser/.emacs.d \
+     -v /etc/localtime:/etc/localtime:ro \
+     afsmnghr/dockemacs:1.5.4 startup
 '
