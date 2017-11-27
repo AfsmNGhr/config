@@ -66,7 +66,7 @@ super + a
   xterm -e 'export TERM=xterm-256color && dockemacs'
 
 super + w
-  firefox-nightly
+  firefox
 
 super + n
   xterm -e 'export TERM=xterm-256color && mc'

@@ -26,15 +26,6 @@ alias Exit='~/.bin/app/exit'
 # Sphinx
 alias Sphinx='~/.bin/app/sphinx'
 
-mpd () {
-status=$(systemctl status mpd --user | awk '/Active:/{printf $2}')
-if [ "$status" == 'active' ]
-then
-systemctl stop mpd --user
-else
-systemctl start mpd --user
-fi }
-
 # Docker
 Docker () {
 status=$(systemctl status docker | awk '/Active:/{printf $2}')
@@ -45,31 +36,16 @@ else
 sudo systemctl start docker
 fi }
 
-# Torrent
-torrent () {
-status=$(systemctl status transmission | awk '/Active:/{printf $2}')
-if [ "$status" == 'active' ]
-then
-sudo systemctl stop transmission
-else
-sudo systemctl start transmission
-fi }
-
 # Volume
 alias volume='amixer | grep -o "[0-9]*" | sed "5 ! d"'
 alias 30='amixer set Master 30%'
 
 # Record
 alias record='ffmpeg -f alsa -i pulse -f x11grab -r 25 -s 1600x900 -i :0.0 -q:v 1 -q:a 1 -pix_fmt yuv420p -y output.mkv'
-alias capture='ffmpeg -f x11grab -r 25 -s 1600x900 -i :0.0+0,24 -vcodec libx264 -pix_fmt yuv420p10le -threads 0 -y output.mkv'
-
-# Emacs
-alias e='emacsclient -nw -a=""'
-alias re='systemctl restart emacs --user'
 
 # Android
-alias android='go-mtpfs ~/Android'
-alias undroid='sudo umount ~/Android'
+alias android='sudo jmtpfs -o allow_other /mnt'
+alias undroid='sudo umount /mnt'
 
 # Git
 alias gdf='git diff'
@@ -113,7 +89,6 @@ alias hs='history | grep '
 alias df='df -h'
 alias du='du -ch'
 alias free='free -m'
-alias np='nano PKGBUILD'
 
 # Safely actions
 alias mv='mv -i'
@@ -140,13 +115,6 @@ alias iptlin='sudo iptables -L INPUT -n -v --line-numbers'
 alias iptlout='sudo iptables -L OUTPUT -n -v --line-numbers'
 alias iptlfw='sudo iptables -L FORWARD -n -v --line-numbers'
 
-alias tor='docker run -it \
-           -v /tmp/.X11-unix:/tmp/.X11-unix \
-           -e DISPLAY=unix$DISPLAY \
-           --device /dev/snd \
-           --name tor-browser \
-           jess/tor-browser'
-
 alias vga='
 xrandr --newmode "1680x1050_60.00"  146.25  1680 1784 1960 2240  1050 1053 1059 1089 -hsync +vsync
 xrandr --addmode VGA1 1680x1050_60.00
@@ -162,5 +130,5 @@ docker run -it --rm --net=host \
      -v $HOME:/mnt/workspace \
      -v emacs_data:/home/emacser/.emacs.d \
      -v /etc/localtime:/etc/localtime:ro \
-     afsmnghr/dockemacs:1.5.4 startup
+     afsmnghr/dockemacs:1.8.0 startup
 '

@@ -2,7 +2,8 @@
   email = afay.zangetsu@gmail.com
   name = Afay Zangetsu
 [core]
-  editor = emacsclient -t
+  editor = nano
+  ignore = dirty
 [color]
   diff = auto
   status = auto
