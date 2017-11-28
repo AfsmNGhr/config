@@ -99,3 +99,14 @@ case "$TERM" in
 	    PS1="> "
 	    ;;
 esac
+
+function gifyze () {
+  start_time=00:01
+  duration=14
+
+  palette="/tmp/palette.png"
+  filters="fps=15"
+
+  ffmpeg -v warning -ss $start_time -t $duration -i $1 -vf "$filters,palettegen" -y $palette
+  ffmpeg -v warning -ss $start_time -t $duration -i $1 -i $palette -lavfi "$filters [x]; [x][1:v] paletteuse" -y $2
+}
