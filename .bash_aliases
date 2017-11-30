@@ -1,5 +1,4 @@
 # System
-alias Info='alsi -n arch -t -u ~/.config/alsi/alsi.conf'
 alias fail='systemctl --failed'
 alias update='yaourt -Syua'
 alias remove='sudo pacman -Rnsc $(pacman -Qtdq)'
@@ -12,19 +11,6 @@ alias backlight='xbacklight -set 0'
 alias Stime='sudo systemd-analyze'
 alias Btime='Stime blame'
 alias Ctime='Stime critical-chain'
-
-# Music
-alias Playlist='~/.bin/app/playlist'
-alias Flac='~/.bin/app/flac'
-
-# Wifi
-alias Wifi='~/.bin/app/wifi'
-
-# Exit
-alias Exit='~/.bin/app/exit'
-
-# Sphinx
-alias Sphinx='~/.bin/app/sphinx'
 
 # Docker
 Docker () {
