@@ -101,8 +101,8 @@ case "$TERM" in
 esac
 
 function gifyze () {
-  start_time=00:01
-  duration=14
+  start_time=00:02
+  duration=6
 
   palette="/tmp/palette.png"
   filters="fps=15"
