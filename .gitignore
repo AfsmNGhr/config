@@ -17,3 +17,10 @@
 !.xinitrc
 !.xprofile
 !.xsession
+!.config/compton.conf
+!.config/freshwrapper.conf
+!.config/htop/htoprc
+!.config/sxhkd/sxhkdrc
+!.config/mpd/mpd.conf
+!.config/dunst/dunstrc
+!.config/bspwm/bspwmrc
