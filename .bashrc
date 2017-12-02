@@ -1,6 +1,6 @@
 # Bash completion
 if [ -f /etc/bash_completion ]; then
-	    . /etc/bash_completion
+    source /etc/bash_completion
 fi
 
 # Git completion
@@ -35,7 +35,7 @@ export LC_MESSAGES="C"
 export HISTTIMEFORMAT='%F %T '
 export HISTSIZE=10000
 export HISTFILESIZE=${HISTSIZE}
-export HISTCONTROL=ignoreboth
+export HISTCONTROL=ignoreboth:erasedups
 export HISTIGNORE="&:ls:[bf]g:exit:[ ]*:ssh:history"
 export TERM=xterm-256color
 export EDITOR='nano'

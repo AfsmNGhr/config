@@ -116,5 +116,5 @@ docker run -it --rm --net=host \
      -v $HOME:/mnt/workspace \
      -v emacs_data:/home/emacser/.emacs.d \
      -v /etc/localtime:/etc/localtime:ro \
-     afsmnghr/dockemacs:1.8.0 startup
+     afsmnghr/dockemacs:1.8.1 startup
 '
