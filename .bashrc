@@ -32,7 +32,7 @@ shopt -s nocaseglob
 
 export LANG=en_US.UTF-8
 export LC_MESSAGES="C"
-export HISTTIMEFORMAT='%F %T '
+unset HISTTIMEFORMAT
 export HISTSIZE=10000
 export HISTFILESIZE=${HISTSIZE}
 export HISTCONTROL=ignoreboth:erasedups
