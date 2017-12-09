@@ -76,28 +76,23 @@ function parse_git_branch {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
+if [ "$SSH_CONNECTION" ]; then
+    TERM='dumb'
+fi
+
 case "$TERM" in
-	"dumb")
-      unsetopt zle
-      unsetopt prompt_cr
-      unsetopt prompt_subst
-      if whence -w precmd > /dev/null; then
-        unfunction precmd
-      fi
-      if whence -w preexec > /dev/null; then
-        unfunction preexec
-      fi
-	    PS1="> "
-	    ;;
-	xterm*|rxvt*|eterm*|screen*)
-  	  PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\] \[\033[1;31m\]& \[\033[0;36m\]\h \[\033[1;34m\]\w\[\033[0;32m\]\n\[\033[0;32m\]└─> \[\033[1;31m\]$(parse_git_branch) \[\033[0m\033[0;32m\]\$\[\033[0m\033[1;38m\] '
-	    ;;
-	linux*)
-	    PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\] \[\033[1;31m\]& \[\033[0;36m\]\h \[\033[1;34m\]\w\[\033[0;32m\]\n\[\033[0;32m\]└─> \[\033[1;31m\]$(parse_git_branch) \[\033[0m\033[0;32m\]\$\[\033[0m\033[1;38m\] '
-	    ;;
-	*)
-	    PS1="> "
-	    ;;
+    "dumb")
+	PS1="> "
+	;;
+    xterm*|rxvt*|eterm*|screen*)
+  	PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\] \[\033[1;31m\]& \[\033[0;36m\]\h \[\033[1;34m\]\w\[\033[0;32m\]\n\[\033[0;32m\]└─> \[\033[1;31m\]$(parse_git_branch) \[\033[0m\033[0;32m\]\$\[\033[0m\033[1;38m\] '
+	;;
+    linux*)
+	PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\] \[\033[1;31m\]& \[\033[0;36m\]\h \[\033[1;34m\]\w\[\033[0;32m\]\n\[\033[0;32m\]└─> \[\033[1;31m\]$(parse_git_branch) \[\033[0m\033[0;32m\]\$\[\033[0m\033[1;38m\] '
+	;;
+    *)
+	PS1="> "
+	;;
 esac
 
 function gifyze () {
