@@ -111,10 +111,27 @@ xrandr --output LVDS1 --mode 1600x900 --fb 1680x1050_60.00 --panning 1680x1050_6
 
 alias dockemacs='
 docker run -it --rm --net=host \
+     --cpuset-cpus 0-3 \
      --env-file $HOME/.dockemacs \
      --entrypoint initialize "$@" \
      -v $HOME:/mnt/workspace \
      -v emacs_data:/home/emacser/.emacs.d \
      -v /etc/localtime:/etc/localtime:ro \
-     afsmnghr/dockemacs:1.8.4 startup
+     afsmnghr/dockemacs:1.9.3 startup
 '
+
+alias dockemacsd='
+touch -f /tmp/dockemacs
+id=`docker run -td --rm --net=host \
+          --env-file $HOME/.dockemacs \
+          --entrypoint initialize "$@" \
+          -v $HOME:/mnt/workspace \
+          -v emacs_data:/home/emacser/.emacs.d \
+          -v /etc/localtime:/etc/localtime:ro \
+          afsmnghr/dockemacs:1.9.0 startup`
+sed -i "s/.*/"$id"/g" /tmp/dockemacs
+'
+
+#alias dockemacsc="
+#docker exec -it $(cat /tmp/dockemacs) /usr/bin/emacsclient -a '' -c '/mnt/workspace'
+#"
