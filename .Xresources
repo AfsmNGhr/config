@@ -11,7 +11,7 @@ Xft.lcdfilter: lcddefault
 !==============================================================================
 
 XTerm*utf8Title:        true
-XTerm*faceName:         Droid Sans Mono
+XTerm*faceName:         Hack
 XTerm*faceSize:         11
 xterm*bolfFont:
 xterm*scrollBar:        false

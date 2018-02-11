@@ -97,7 +97,7 @@ esac
 
 function gifyze () {
   start_time=00:02
-  duration=6
+  duration=11
 
   palette="/tmp/palette.png"
   filters="fps=15"
