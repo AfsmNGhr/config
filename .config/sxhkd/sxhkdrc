@@ -28,9 +28,6 @@ super + {o,i}
   bspc node {older,newer} -f; \
   bspc control --record-history on
 
-super + h
-  thunar
-
 super + {_,shift + }{j,k,i,l}
   bspc node -{f,s} {west,south,north,east}
 
@@ -62,14 +59,8 @@ super + p
 super + e
   xterm
 
-super + a
-  chromium
-
 super + w
-  firefox
-
-super + n
-  xterm -e 'export TERM=xterm-256color && mc'
+  chromium
 
 ####                            ####
 ###           Fn keys            ###

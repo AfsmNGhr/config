@@ -76,12 +76,6 @@ alias df='df -h'
 alias du='du -ch'
 alias free='free -m'
 
-# Safely actions
-alias mv='mv -i'
-alias cp='cp -i'
-alias ln='ln -i'
-alias cp='cp -i'
-
 # Cd
 alias ..='cd ..'
 alias .2='cd ../..'
