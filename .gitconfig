@@ -18,3 +18,7 @@
   default = simple
 [merge]
   conflictStyle = diff3
+[status]
+	submoduleSummary = true
+[diff]
+	submodule = log
