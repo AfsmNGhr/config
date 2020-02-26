@@ -31,28 +31,17 @@ shopt -s hostcomplete
 shopt -s nocaseglob
 
 export LANG=en_US.UTF-8
-export LC_MESSAGES="C"
+export LC_MESSAGES='C'
 unset HISTTIMEFORMAT
 export HISTSIZE=10000
 export HISTFILESIZE=${HISTSIZE}
+export HISTIGNORE='cd*:ls*:rm*:exit:h:history:pass*:c:cat*'
 export HISTCONTROL=ignoreboth:erasedups
-export HISTIGNORE="&:ls:[bf]g:exit:[ ]*:ssh:history"
 export TERM=xterm-256color
 export EDITOR='nano'
-export LD_LIBRARY_PATH=/usr/local/lib
-export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
-# export VDPAU_DRIVER=va_gl
-# export LIBVA_DRIVER_NAME=vdpau
 
-# [ -n "$XTERM_VERSION" ] && compton-trans -o 60 >/dev/null
-
-function active {
-    xprop -root 32x '\t$0' _NET_ACTIVE_WINDOW | cut -f 2
-}
-
-ex ()
-{
-  if [ -f $1 ] ; then
+ex () {
+  if [ -f $1 ]; then
     case $1 in
       *.tar.bz2)   tar xjf $1   ;;
       *.tar.gz)    tar xzf $1   ;;
@@ -73,7 +62,11 @@ ex ()
 }
 
 function parse_git_branch {
-    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+    result=$(git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/')
+    if [[ -n "$result" ]]; then
+        result=" ${result}"
+    fi
+    echo "$result"
 }
 
 if [ "$SSH_CONNECTION" ]; then
@@ -85,23 +78,12 @@ case "$TERM" in
 	PS1="> "
 	;;
     xterm*|rxvt*|eterm*|screen*)
-  	PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\] \[\033[1;31m\]& \[\033[0;36m\]\h \[\033[1;34m\]\w\[\033[0;32m\]\n\[\033[0;32m\]└─> \[\033[1;31m\]$(parse_git_branch) \[\033[0m\033[0;32m\]\$\[\033[0m\033[1;38m\] '
+  	PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\] \[\033[1;31m\]& \[\033[0;36m\]\h \[\033[1;34m\]\w\[\033[0;32m\]\n\[\033[0;32m\]└─>\[\033[1;31m\]$(parse_git_branch) \[\033[0m\033[0;32m\]\$\[\033[0m\033[1;38m\] '
 	;;
     linux*)
-	PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\] \[\033[1;31m\]& \[\033[0;36m\]\h \[\033[1;34m\]\w\[\033[0;32m\]\n\[\033[0;32m\]└─> \[\033[1;31m\]$(parse_git_branch) \[\033[0m\033[0;32m\]\$\[\033[0m\033[1;38m\] '
+	PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\] \[\033[1;31m\]& \[\033[0;36m\]\h \[\033[1;34m\]\w\[\033[0;32m\]\n\[\033[0;32m\]└─>\[\033[1;31m\]$(parse_git_branch) \[\033[0m\033[0;32m\]\$\[\033[0m\033[1;38m\] '
 	;;
     *)
 	PS1="> "
 	;;
 esac
-
-function gifyze () {
-  start_time=00:02
-  duration=11
-
-  palette="/tmp/palette.png"
-  filters="fps=15"
-
-  ffmpeg -v warning -ss $start_time -t $duration -i $1 -vf "$filters,palettegen" -y $palette
-  ffmpeg -v warning -ss $start_time -t $duration -i $1 -i $palette -lavfi "$filters [x]; [x][1:v] paletteuse" -y $2
-}
