@@ -1,6 +1,7 @@
 [user]
   email = afay.zangetsu@gmail.com
-  name = Afay Zangetsu
+  name = Alexey Ermolaev
+  signingKey = F2F91E4EBFA7EF6F
 [core]
   editor = nano
   ignore = dirty
@@ -14,11 +15,18 @@
   autostash = true
 [stash]
   showPatch = true
+[fetch]
+  recurseSubmodules = on-demand
 [push]
   default = simple
+	followTags = true
 [merge]
   conflictStyle = diff3
 [status]
-	submoduleSummary = true
+  submoduleSummary = true
 [diff]
-	submodule = log
+  submodule = log
+[commit]
+	gpgSign = true
+[gpg]
+	program = gpg2
