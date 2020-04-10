@@ -49,14 +49,17 @@ super + ctrl + bracket{left,right}
 ###          Run Apps            ###
 ####                            ####
 
-super + p
-  dmenu_wrapper
-
 super + e
   xterm
 
 super + w
   chromium
+
+super + p
+  telegram-desktop
+
+super + o
+  zoom
 
 ####                            ####
 ###           Fn keys            ###

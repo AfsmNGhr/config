@@ -13,5 +13,7 @@ bspc config history_aware_focus true
 bspc monitor -d I II III IV V VI VII VIII IX X
 
 # Rules
-bspc rule -a Chromium desktop='^1' state=tiled focus=on center=true follow=on
-bspc rule -a 'xterm, Xterm' state=fullscreen center=true
+bspc rule -a Chromium desktop='^1' state=fullscreen focus=on center=true follow=on
+bspc rule -a Xterm state=fullscreen center=true
+bspc rule -a zoom desktop='^5' state=fullscreen focus=on center=true follow=on
+bsps rule -a TelegramDesktop desktop='^4' focus=on state=fullscreen center=true follow=on
