@@ -19,7 +19,7 @@
   recurseSubmodules = on-demand
 [push]
   default = simple
-	followTags = true
+  followTags = true
 [merge]
   conflictStyle = diff3
 [status]
@@ -27,6 +27,6 @@
 [diff]
   submodule = log
 [commit]
-	gpgSign = true
+  gpgSign = true
 [gpg]
-	program = gpg2
+  program = gpg2
